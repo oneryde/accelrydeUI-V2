@@ -1,5 +1,3 @@
-import Image from "next/image";
-import HashLink from "@/components/HashLink";
 import StoreBadges from "./StoreBadges";
 
 export default function Footer() {
@@ -7,36 +5,8 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0A0A0A] overflow-hidden">
-      {/* ---- Top section: CTA + email ---- */}
-      <div className="border-t border-white/[0.04]">
-        <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 py-16 md:py-20">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.02em] text-metallic leading-tight max-w-md">
-              Get early access to AccelRyde
-            </h2>
-            <div className="w-full md:w-auto md:min-w-[380px]">
-              <HashLink
-                href="/#waitlist"
-                className="btn-shimmer inline-flex items-center justify-center gap-2 w-full md:w-auto px-8 py-4 rounded-2xl font-semibold text-white transition-all hover:shadow-[0_0_40px_rgba(255,79,0,0.3)] hover:scale-[1.02] active:scale-[0.98]"
-                style={{ background: "linear-gradient(135deg, #FF4F00, #FF7F2A)" }}
-              >
-                Join the waitlist
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </HashLink>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ---- Divider ---- */}
-      <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="h-px bg-white/[0.06]" />
-      </div>
-
-      {/* ---- Middle section: links + social + store badges ---- */}
-      <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 py-12">
+      {/* ---- Social + store badges ---- */}
+      <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 py-12 border-t border-white/[0.04]">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
           {/* Social icons */}
           <div className="flex items-center gap-3">

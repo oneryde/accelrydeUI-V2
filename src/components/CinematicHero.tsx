@@ -38,22 +38,12 @@ export default function CinematicHero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#1F0F08]/70 via-[#0A0A0A]/50 to-[#0A0A0A] z-[1]" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/60 via-transparent to-[#0A0A0A]/40 z-[1]" />
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 px-6 sm:px-8 lg:px-12 xl:px-16">
+      {/* Content — pt clears fixed nav; page scroll is not trapped (no nested overflow) */}
+      <div className="relative z-10 h-full flex flex-col justify-end pt-16 pb-16 md:pb-24 px-6 sm:px-8 lg:px-12 xl:px-16">
         <div className="w-full">
-          {/* Pill */}
-          <div
-            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6 transition-all duration-700 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-          >
-            <span className="w-2 h-2 rounded-full bg-[#FF4F00] animate-pulse" />
-            <span className="text-xs font-medium text-[#C8C8C8] tracking-widest uppercase">
-              Early access opening soon
-            </span>
-          </div>
-
           {/* Headline */}
           <h1
-            className={`text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-[-0.03em] leading-[0.9] mb-6 transition-all duration-700 delay-200 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className={`text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-[-0.03em] leading-[0.95] mb-6 transition-all duration-700 delay-200 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
             <span className="text-metallic">Your crew.</span>
             <br />
