@@ -4,7 +4,9 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 /**
- * After client navigation to "/" with a hash (e.g. from /privacy), scroll to the target id.
+ * - If the URL has a hash, scroll to that element (for in-page nav links).
+ * - If no hash, always start at the top (prevents browser scroll restoration
+ *   from landing mid-page on refresh).
  */
 export default function HashScroll() {
   const pathname = usePathname();
@@ -12,7 +14,12 @@ export default function HashScroll() {
   useEffect(() => {
     if (pathname !== "/") return;
     const id = window.location.hash.slice(1);
-    if (!id) return;
+
+    if (!id) {
+      // Force scroll to top on load / refresh when there's no hash
+      window.scrollTo(0, 0);
+      return;
+    }
 
     const run = () => {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });

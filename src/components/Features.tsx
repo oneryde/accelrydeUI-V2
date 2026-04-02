@@ -142,10 +142,10 @@ interface Feature {
 const features: Feature[] = [
   {
     number: "01",
-    title: "Ride together, in sync",
+    title: "Ride together, stay together",
     subtitle: "Group coordination",
     description:
-      "Create a group, set a destination, and everyone stays on the same page. Real-time location sharing, ETA updates, and regrouping alerts — no more scattered texts asking \"where are you?\"",
+      "Create a group, drop a pin, and everyone locks in. Live location sharing, ETA countdowns, and regrouping alerts. No more \"where are you?\" texts flying across three apps.",
     accent: "#FF6600",
     type: "carousel",
     screens: [<GroupOverviewScreen key="overview" />, <MembersScreen key="members" />, <RidesScreen key="rides" />, <MapScreen key="map" />],
@@ -153,40 +153,40 @@ const features: Feature[] = [
   },
   {
     number: "02",
-    title: "Routes that make sense",
+    title: "One route, zero wrong turns",
     subtitle: "Smart routing",
     description:
-      "Plan rides with stops, fuel breaks, and scenic detours baked in. Share routes with your group instantly — everyone rides the same path, no wrong turns, no one left behind.",
+      "Plan rides with fuel stops, scenic detours, and chai breaks baked in. Share the route once and everyone follows the same path. No screenshots, no voice notes explaining turns.",
     accent: "#3B82F6",
     type: "static",
     screen: <MapScreen />,
   },
   {
     number: "03",
-    title: "Discover new groups",
-    subtitle: "Community & people",
+    title: "Find your kind of riders",
+    subtitle: "Community & discovery",
     description:
-      "Find riding groups near you, join open communities, or invite friends to build your own crew. AccelRyde makes it easy to discover riders who share your routes, your schedule, and your vibe.",
+      "Discover local riding groups, join weekend crews, or build your own squad from scratch. Match by route, riding style, or schedule, not just proximity.",
     accent: "#FF6600",
     type: "static",
     screen: <DiscoverGroupsScreen />,
   },
   {
     number: "04",
-    title: "One thread, every ride",
+    title: "Chat that rides with you",
     subtitle: "Group messaging",
     description:
-      "Built-in group chat that lives with your ride. Share photos, voice notes, and pins without switching apps. Your ride history and conversations stay together — everything in context.",
+      "Group chat that lives inside your ride, not buried in WhatsApp. Share photos, drop pins, send voice notes. Every conversation stays tied to the ride it belongs to.",
     accent: "#3B82F6",
     type: "static",
     screen: <ChatScreen />,
   },
   {
     number: "05",
-    title: "Less apps, more experience",
+    title: "One app. The whole ride.",
     subtitle: "Everything unified",
     description:
-      "Stop juggling WhatsApp for chat, Google Maps for routes, and spreadsheets for plans. AccelRyde replaces the patchwork with one app — and keeps your complete ride history so every mile counts.",
+      "WhatsApp for chat, Maps for routes, spreadsheets for plans. Sound familiar? AccelRyde replaces all of it. Plus, your complete ride history lives here, so every mile counts.",
     accent: "#FF6600",
     type: "static",
     screen: <RideDetailsScreen />,
@@ -199,6 +199,7 @@ const features: Feature[] = [
 
 function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -207,8 +208,7 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add("animate-fade-in-up");
-          el.style.opacity = "1";
+          setVisible(true);
           observer.unobserve(el);
         }
       },
@@ -223,14 +223,19 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
   return (
     <div
       ref={ref}
-      className="opacity-0 grid md:grid-cols-2 gap-12 md:gap-20 items-center py-20 md:py-32"
+      className="grid md:grid-cols-2 gap-12 md:gap-20 items-center py-20 md:py-32"
     >
       {/* Number + content */}
-      <div className={`space-y-6 ${isEven ? "" : "md:order-2"}`}>
+      <div className={`space-y-6 ${isEven ? "" : "md:order-2"} transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <div className="flex items-center gap-4">
           <span
-            className="text-7xl md:text-8xl font-black tracking-tighter leading-none"
-            style={{ color: feature.accent, opacity: 0.12, animation: "count-glow 4s ease-in-out infinite" }}
+            className="text-7xl md:text-8xl font-black tracking-tighter leading-none transition-all duration-1000"
+            style={{
+              color: feature.accent,
+              opacity: visible ? 0.15 : 0,
+              animation: visible ? "count-glow 4s ease-in-out infinite" : "none",
+              transform: visible ? "scale(1)" : "scale(0.8)",
+            }}
           >
             {feature.number}
           </span>
@@ -241,13 +246,19 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.02em] text-metallic leading-tight">
           {feature.title}
         </h2>
-        <p className="text-base sm:text-lg text-[#71717A] leading-relaxed max-w-lg">
+        <p className="text-base sm:text-lg text-[#71717A] leading-relaxed max-w-none">
           {feature.description}
         </p>
       </div>
 
       {/* Phone: carousel or static */}
-      <div className={`${isEven ? "" : "md:order-1"}`}>
+      <div
+        className={`${isEven ? "" : "md:order-1"} transition-all duration-700 delay-200 ${
+          visible
+            ? "opacity-100 translate-y-0"
+            : `opacity-0 ${isEven ? "translate-x-12" : "-translate-x-12"}`
+        }`}
+      >
         {feature.type === "carousel" && feature.screens && feature.labels ? (
           <PhoneCarousel
             screens={feature.screens}
@@ -267,18 +278,37 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
 /* ------------------------------------------------------------------ */
 
 export default function Features() {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [headerVisible, setHeaderVisible] = useState(false);
+
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHeaderVisible(true);
+          obs.unobserve(el);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <section id="features" className="relative scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-6 pt-20">
-        <div className="text-center mb-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#FF4F00]">
+      <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 pt-20">
+        <div ref={headerRef} className="text-center mb-8">
+          <span className={`text-xs font-semibold uppercase tracking-[0.3em] text-[#FF4F00] transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             Deep Dive
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.02em] text-metallic">
-            Built for riders, not commuters
+          <h2 className={`mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.02em] text-metallic transition-all duration-700 delay-100 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+            Everything riders need. Nothing they don&apos;t.
           </h2>
-          <p className="mt-4 text-[#71717A] text-lg max-w-xl mx-auto">
-            Five pillars that replace the patchwork of apps you use today.
+          <p className={`mt-4 text-[#71717A] text-lg max-w-none transition-all duration-700 delay-200 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+            Five features that replace the five apps you&apos;re juggling today.
           </p>
         </div>
 

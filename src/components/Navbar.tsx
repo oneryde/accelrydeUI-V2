@@ -23,7 +23,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
           <Image
@@ -40,26 +40,26 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
-          <HashLink href="/#product" className="text-sm text-[#A1A1AA] hover:text-white transition-colors duration-300">
+          <HashLink href="/#product" className="nav-link-underline text-sm text-[#A1A1AA] hover:text-white transition-colors duration-300">
             Product
           </HashLink>
-          <HashLink href="/#story" className="text-sm text-[#A1A1AA] hover:text-white transition-colors duration-300">
+          <HashLink href="/#story" className="nav-link-underline text-sm text-[#A1A1AA] hover:text-white transition-colors duration-300">
             Story
           </HashLink>
-          <HashLink href="/#waitlist" className="text-sm text-[#A1A1AA] hover:text-white transition-colors duration-300">
+          <HashLink href="/#waitlist" className="nav-link-underline text-sm text-[#A1A1AA] hover:text-white transition-colors duration-300">
             Beta
           </HashLink>
-          <Link href="/privacy" className="text-sm text-[#A1A1AA] hover:text-white transition-colors duration-300">
+          <Link href="/privacy" className="nav-link-underline text-sm text-[#A1A1AA] hover:text-white transition-colors duration-300">
             Privacy
           </Link>
           <a
             href="https://qafuavp1bg.zite.so"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-semibold px-5 py-2 rounded-xl text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(255,79,0,0.3)]"
+            className="btn-shimmer text-sm font-semibold px-5 py-2 rounded-xl text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(255,79,0,0.3)] hover:scale-105 active:scale-95"
             style={{ background: "linear-gradient(135deg, #FF4F00, #FF7F2A)" }}
           >
-            Join our founding team
+            Join the team
           </a>
         </div>
 
@@ -80,20 +80,25 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-[#0A0A0A]/95 backdrop-blur-2xl border-b border-white/[0.04] px-6 pb-6 space-y-3">
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="bg-[#0A0A0A]/95 backdrop-blur-2xl border-b border-white/[0.04] px-6 pb-6 space-y-3">
           {[
             { href: "/#product", label: "Product" },
             { href: "/#story", label: "Story" },
             { href: "/#waitlist", label: "Beta" },
             { href: "/privacy", label: "Privacy" },
-          ].map((link) =>
+          ].map((link, i) =>
             link.href.startsWith("/#") ? (
               <HashLink
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block text-sm text-[#A1A1AA] hover:text-white transition-colors py-2"
+                className={`block text-sm text-[#A1A1AA] hover:text-white transition-colors py-2 ${mobileOpen ? "menu-item-animate" : ""}`}
+                style={{ animationDelay: `${i * 50}ms` }}
               >
                 {link.label}
               </HashLink>
@@ -102,7 +107,8 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block text-sm text-[#A1A1AA] hover:text-white transition-colors py-2"
+                className={`block text-sm text-[#A1A1AA] hover:text-white transition-colors py-2 ${mobileOpen ? "menu-item-animate" : ""}`}
+                style={{ animationDelay: `${i * 50}ms` }}
               >
                 {link.label}
               </Link>
@@ -112,13 +118,13 @@ export default function Navbar() {
             href="https://qafuavp1bg.zite.so"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-sm font-semibold px-6 py-2.5 rounded-xl text-white"
-            style={{ background: "linear-gradient(135deg, #FF4F00, #FF7F2A)" }}
+            className={`inline-block text-sm font-semibold px-6 py-2.5 rounded-xl text-white btn-shimmer ${mobileOpen ? "menu-item-animate" : ""}`}
+            style={{ background: "linear-gradient(135deg, #FF4F00, #FF7F2A)", animationDelay: "200ms" }}
           >
-            Join our founding team
+            Join the team
           </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

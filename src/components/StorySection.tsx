@@ -6,22 +6,22 @@ import Image from "next/image";
 const stories = [
   {
     image: "/riders/hero.png",
-    caption: "We lost each other 5 times on this road.",
+    caption: "Five riders. Five different routes. Same destination, supposedly.",
     alt: "Group of riders on mountain highway",
   },
   {
     image: "/riders/group-lake.png",
-    caption: "No signal. No coordination. Just vibes.",
+    caption: "No signal. No plan. Just vibes and a lot of wrong turns.",
     alt: "Rider group at a high-altitude lake",
   },
   {
     image: "/riders/solo.png",
-    caption: "Someone always rides ahead.",
+    caption: "The one who rides ahead never checks the mirror.",
     alt: "Solo rider against mountain backdrop",
   },
   {
     image: "/riders/summit.png",
-    caption: "Someone always gets left behind.",
+    caption: "The group photo where half the group is still 20 km behind.",
     alt: "Group celebrating at the highest motorable pass",
   },
 ];
@@ -129,7 +129,7 @@ export default function StorySection() {
       {/* Background glow */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#FF4F00]/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div ref={headerRef} className="max-w-7xl mx-auto px-6 mb-12">
+      <div ref={headerRef} className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 mb-12">
         <span
           className={`text-xs font-semibold uppercase tracking-[0.3em] text-[#FF4F00] block mb-4 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
@@ -138,22 +138,22 @@ export default function StorySection() {
         <h2
           className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.02em] text-metallic leading-[1.05] transition-all duration-700 delay-100 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          Built on real rides,
+          Every rider knows
           <br />
-          <span className="text-gradient-orange">not assumptions</span>
+          <span className="text-gradient-orange">this feeling</span>
         </h2>
         <p
-          className={`mt-4 text-[#A1A1AA] text-lg max-w-lg transition-all duration-700 delay-200 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          className={`mt-4 text-[#A1A1AA] text-lg max-w-none transition-all duration-700 delay-200 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          Every feature in AccelRyde was born from moments like these — real
-          chaos on real roads.
+          We built AccelRyde because we lived every one of these moments.
+          The chaos is real. The fix should be too.
         </p>
       </div>
 
       {/* Horizontal scroll */}
       <div
         ref={scrollRef}
-        className="flex gap-5 px-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
+        className="flex gap-5 px-6 sm:px-8 lg:px-12 xl:px-16 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {stories.map((story, i) => (
@@ -161,6 +161,21 @@ export default function StorySection() {
         ))}
         {/* Spacer */}
         <div className="flex-shrink-0 w-6" />
+      </div>
+
+      {/* Scroll hint */}
+      <div className="flex items-center justify-center gap-2 mt-4 text-[#52525B] text-xs">
+        <span>Swipe to explore</span>
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          style={{ animation: "scroll-hint 2s ease-in-out infinite" }}
+        >
+          <path d="M9 5l7 7-7 7" />
+        </svg>
       </div>
     </section>
   );

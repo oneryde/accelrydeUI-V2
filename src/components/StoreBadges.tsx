@@ -13,7 +13,7 @@ export default function StoreBadges() {
               height="40"
               viewBox="0 0 120 40"
               className="fill-current text-white"
-              aria-label="Download on the App Store — Coming soon"
+              aria-label="Download on the App Store, coming soon"
               role="img"
             >
               <rect width="120" height="40" rx="6" fill="#18181B" stroke="#3f3f46" strokeWidth="0.5" />
@@ -42,7 +42,7 @@ export default function StoreBadges() {
               height="40"
               viewBox="0 0 135 40"
               className="fill-current text-white"
-              aria-label="Get it on Google Play — Coming soon"
+              aria-label="Get it on Google Play, coming soon"
               role="img"
             >
               <rect width="135" height="40" rx="6" fill="#18181B" stroke="#3f3f46" strokeWidth="0.5" />

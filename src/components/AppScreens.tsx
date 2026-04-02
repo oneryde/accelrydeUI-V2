@@ -84,6 +84,16 @@ export function ChatScreen() {
             <p>I&apos;ll bring the snacks 😁</p>
           </div>
         </div>
+
+        {/* Typing indicator */}
+        <div className="flex items-end gap-1.5 mt-1">
+          <div className="w-4 h-4 rounded-full bg-[#27272A] flex items-center justify-center text-[6px] text-[#A1A1AA] font-medium shrink-0">S</div>
+          <div className="bg-[#1E1E22] rounded-xl rounded-tl-sm px-3 py-2 flex items-center gap-1">
+            <span className="typing-dot" />
+            <span className="typing-dot" />
+            <span className="typing-dot" />
+          </div>
+        </div>
       </div>
 
       {/* Input bar */}

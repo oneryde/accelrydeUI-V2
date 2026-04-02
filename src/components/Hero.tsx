@@ -28,7 +28,7 @@ export default function Hero() {
         {/* Subheadline */}
         <p className="opacity-0 animate-fade-in-up animation-delay-200 text-lg sm:text-xl text-[#A1A1AA] max-w-2xl mx-auto mb-10 leading-relaxed">
           AccelRyde brings your group, your routes, and your favorite spots into
-          one app — so you spend less time coordinating and more time riding.
+          one app so you spend less time coordinating and more time riding.
         </p>
 
         {/* CTAs */}

@@ -40,7 +40,7 @@ export default function SolutionSection() {
       {/* Ambient glow */}
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-[#FF4F00]/4 rounded-full blur-[200px] -translate-y-1/2 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16">
         {/* Section label */}
         <span
           className={`text-xs font-semibold uppercase tracking-[0.3em] text-[#FF4F00] block mb-4 transition-all duration-700 ${visible ? "opacity-100" : "opacity-0"}`}
@@ -50,28 +50,28 @@ export default function SolutionSection() {
         <h2
           className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.02em] leading-[1.05] mb-6 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          <span className="text-metallic">Ride together,</span>{" "}
-          <span className="text-gradient-orange">in sync</span>
+          <span className="text-metallic">See everyone.</span>{" "}
+          <span className="text-gradient-orange">Lose no one.</span>
         </h2>
         <p
-          className={`text-[#A1A1AA] text-lg max-w-xl mb-16 transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          className={`text-[#A1A1AA] text-lg max-w-none mb-16 transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          Real-time tracking, group coordination, and messaging — built for
-          riders who refuse to ride scattered.
+          Live tracking, instant regrouping, and built-in chat. Everything
+          your riding group actually needs, in one place.
         </p>
 
-        {/* Split: image + phones */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* Split: ~45% photo / ~55% phones (reference ratio), not 50/50 */}
+        <div className="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-[minmax(0,9fr)_minmax(0,11fr)] lg:gap-x-10 xl:gap-x-12 lg:gap-y-0">
           {/* Left: cinematic image with tracking dots overlay */}
           <div
-            className={`relative w-full max-w-lg mx-auto lg:mx-0 aspect-[3/4] rounded-2xl overflow-hidden transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}
+            className={`relative mx-auto w-full max-w-[520px] aspect-[3/4] min-h-[min(88vw,520px)] rounded-2xl overflow-hidden transition-all duration-700 delay-200 sm:max-w-none lg:mx-0 lg:min-h-0 lg:max-w-none ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}
           >
             <Image
               src="/riders/product-pass.png"
               alt="Seven adventure motorcycles lined up on a high-altitude pass overlooking a green valley"
               fill
               className="object-cover object-center cinematic-img"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 1024px) 100vw, 42vw"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/40 to-transparent z-[1]" />
@@ -115,33 +115,41 @@ export default function SolutionSection() {
             </div>
           </div>
 
-          {/* Right: phone mockups */}
+          {/* Right: three phones — width-based so they never overflow the grid column */}
           <div
-            className={`relative flex gap-4 justify-center transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"}`}
+            className={`relative flex w-full min-w-0 flex-col justify-center overflow-hidden transition-all duration-700 delay-400 ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"}`}
           >
-            {/* Main phone */}
-            <div className="relative w-[200px] aspect-[9/19] rounded-[1.5rem] border-2 border-[#1C1C1E] bg-[#0A0A0A] overflow-hidden shadow-[0_0_60px_rgba(255,79,0,0.08)]">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-[#0A0A0A] rounded-b-lg z-20" />
-              <div className="absolute inset-0 pt-4 overflow-hidden">
-                <MapScreen />
+            <div className="flex items-end justify-center gap-[3%] py-4 w-full min-w-0">
+              {/* Main phone (Map) — tallest, ~32% of container width */}
+              <div className="relative z-30 w-[60%] sm:w-[34%] lg:w-[32%] aspect-[9/19] rounded-[1.5rem] border-2 border-[#1C1C1E] bg-[#0A0A0A] shadow-[0_0_60px_rgba(255,79,0,0.10)] sm:rounded-[1.75rem]">
+                <div className="absolute inset-0 overflow-hidden rounded-[inherit]">
+                  <div className="absolute top-0 left-1/2 z-20 h-3.5 w-14 -translate-x-1/2 rounded-b-lg bg-[#0A0A0A] sm:h-4 sm:w-16" />
+                  <div className="absolute inset-0 overflow-hidden pt-3.5 sm:pt-4">
+                    <MapScreen />
+                  </div>
+                  <div className="absolute bottom-1 left-1/2 z-20 h-0.5 w-12 -translate-x-1/2 rounded-full bg-[#333]" />
+                </div>
               </div>
-              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-[#333] rounded-full z-20" />
-            </div>
 
-            {/* Secondary phone (overlapping) */}
-            <div className="relative w-[180px] aspect-[9/19] rounded-[1.5rem] border-2 border-[#1C1C1E] bg-[#0A0A0A] overflow-hidden shadow-[0_0_60px_rgba(255,79,0,0.06)] -ml-8 mt-12 hidden sm:block">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-[#0A0A0A] rounded-b-lg z-20" />
-              <div className="absolute inset-0 pt-4 overflow-hidden">
-                <ChatScreen />
+              {/* Secondary phone (Chat) — ~92% height of main */}
+              <div className="relative z-20 hidden sm:block w-[31%] lg:w-[29%] aspect-[9/19] self-end mb-0 rounded-[1.5rem] border-2 border-[#1C1C1E] bg-[#0A0A0A] shadow-[0_0_50px_rgba(255,79,0,0.08)] sm:rounded-[1.75rem]">
+                <div className="absolute inset-0 overflow-hidden rounded-[inherit]">
+                  <div className="absolute top-0 left-1/2 z-20 h-3.5 w-14 -translate-x-1/2 rounded-b-lg bg-[#0A0A0A] sm:h-4 sm:w-16" />
+                  <div className="absolute inset-0 overflow-hidden pt-3.5 sm:pt-4">
+                    <ChatScreen />
+                  </div>
+                  <div className="absolute bottom-1 left-1/2 z-20 h-0.5 w-11 -translate-x-1/2 rounded-full bg-[#333]" />
+                </div>
               </div>
-              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-[#333] rounded-full z-20" />
-            </div>
 
-            {/* Third phone peek */}
-            <div className="relative w-[160px] aspect-[9/19] rounded-[1.5rem] border-2 border-[#1C1C1E] bg-[#0A0A0A] overflow-hidden shadow-[0_0_60px_rgba(255,79,0,0.04)] -ml-6 mt-24 hidden md:block opacity-60">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-4 bg-[#0A0A0A] rounded-b-lg z-20" />
-              <div className="absolute inset-0 pt-4 overflow-hidden">
-                <GroupOverviewScreen />
+              {/* Third phone (Group Overview) — ~85% height of main */}
+              <div className="relative z-10 hidden md:block w-[28%] lg:w-[27%] aspect-[9/19] self-end mb-0 rounded-[1.5rem] border-2 border-[#1C1C1E] bg-[#0A0A0A] shadow-[0_0_40px_rgba(255,79,0,0.06)] sm:rounded-[1.75rem]">
+                <div className="absolute inset-0 overflow-hidden rounded-[inherit]">
+                  <div className="absolute top-0 left-1/2 z-20 h-3.5 w-12 -translate-x-1/2 rounded-b-lg bg-[#0A0A0A] sm:w-14" />
+                  <div className="absolute inset-0 overflow-hidden pt-3.5 sm:pt-4">
+                    <GroupOverviewScreen />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

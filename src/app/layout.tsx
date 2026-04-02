@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "AccelRyde — One place for groups, routes, and the ride",
+    default: "AccelRyde | One place for groups, routes, and the ride",
     template: "%s | AccelRyde",
   },
   description:
-    "AccelRyde helps riders and groups coordinate routes, discover places, and message — all in one app. Join the beta waitlist.",
+    "AccelRyde helps riders and groups coordinate routes, discover places, and message, all in one app. Join the beta waitlist.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://accelryde.com"
   ),
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "AccelRyde",
-    title: "AccelRyde — One place for groups, routes, and the ride",
+    title: "AccelRyde | One place for groups, routes, and the ride",
     description:
-      "AccelRyde helps riders and groups coordinate routes, discover places, and message — all in one app.",
+      "AccelRyde helps riders and groups coordinate routes, discover places, and message, all in one app.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AccelRyde — One place for groups, routes, and the ride",
+    title: "AccelRyde | One place for groups, routes, and the ride",
     description:
-      "AccelRyde helps riders and groups coordinate routes, discover places, and message — all in one app.",
+      "AccelRyde helps riders and groups coordinate routes, discover places, and message, all in one app.",
   },
   robots: {
     index: true,
@@ -48,7 +48,7 @@ const jsonLd = {
   name: "AccelRyde",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://accelryde.com",
   description:
-    "AccelRyde helps riders and groups coordinate routes, discover places, and message — all in one app.",
+    "AccelRyde helps riders and groups coordinate routes, discover places, and message, all in one app.",
 };
 
 export default function RootLayout({
@@ -65,6 +65,11 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if ("scrollRestoration" in history) history.scrollRestoration = "manual";`,
+          }}
         />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>

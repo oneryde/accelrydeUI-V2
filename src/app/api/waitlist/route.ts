@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { appendWaitlistRow } from "@/lib/waitlistSheet";
+import { appendWaitlistRow, hasSheetsCredentialsConfigured } from "@/lib/waitlistSheet";
 
 export const runtime = "nodejs";
 
@@ -34,9 +34,18 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  let body: unknown;
   try {
-    const body = await request.json();
-    const { email } = body;
+    body = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: "Request body must be JSON with an email field." },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const { email } = body as { email?: unknown };
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || typeof email !== "string" || !emailRegex.test(email)) {
@@ -50,23 +59,32 @@ export async function POST(request: NextRequest) {
     const timestamp = new Date().toISOString();
     const source = "marketing";
 
-    const sheetsJson = process.env.GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON?.trim();
     const webappUrl = process.env.WAITLIST_WEBAPP_URL?.trim();
 
-    if (sheetsJson) {
-      try {
-        await appendWaitlistRow(sanitizedEmail, source);
+    if (hasSheetsCredentialsConfigured()) {
+      const result = await appendWaitlistRow(sanitizedEmail, source);
+      if (result.ok) {
         return NextResponse.json({ success: true });
-      } catch (err) {
-        console.error("[waitlist] Google Sheets error:", err);
-        return NextResponse.json(
-          {
-            error:
-              "Could not save your signup. Check that the sheet is shared with the service account email and that the Sheets API is enabled.",
-          },
-          { status: 502 }
-        );
       }
+
+      const shareHint = result.serviceAccountEmail
+        ? ` In Google Sheets: Share → add ${result.serviceAccountEmail} as Editor.`
+        : "";
+
+      const payload: {
+        error: string;
+        details?: string;
+        serviceAccountEmail?: string;
+      } = {
+        error: `Could not save your signup.${shareHint} Enable the Google Sheets API for the service account’s GCP project, then try again.`,
+      };
+
+      payload.details = result.detail;
+      if (result.serviceAccountEmail) {
+        payload.serviceAccountEmail = result.serviceAccountEmail;
+      }
+
+      return NextResponse.json(payload, { status: 502 });
     }
 
     if (webappUrl) {
@@ -106,7 +124,10 @@ export async function POST(request: NextRequest) {
       { error: "Waitlist is not configured yet. Please try again later." },
       { status: 503 }
     );
-  } catch {
-    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
+  } catch (err) {
+    console.error("[waitlist] unexpected error:", err);
+    const message =
+      err instanceof Error ? err.message : "Something went wrong. Please try again.";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

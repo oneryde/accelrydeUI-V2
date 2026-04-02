@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "AccelRyde privacy policy — how we collect, use, and protect your data.",
+    "AccelRyde privacy policy: how we collect, use, and protect your data.",
 };
 
 export default function PrivacyPage() {
@@ -40,18 +40,18 @@ export default function PrivacyPage() {
               </h2>
               <ul className="list-disc list-inside space-y-2">
                 <li>
-                  <strong className="text-[#FAFAFA]">Email address</strong> —
+                  <strong className="text-[#FAFAFA]">Email address</strong>,
                   when you sign up for our beta waitlist.
                 </li>
                 <li>
-                  <strong className="text-[#FAFAFA]">Usage analytics</strong> —
+                  <strong className="text-[#FAFAFA]">Usage analytics</strong>:
                   we may use privacy-respecting analytics (e.g., page views,
                   referrer) to improve the site. No personal identifiers are
                   tracked.
                 </li>
                 <li>
-                  <strong className="text-[#FAFAFA]">Device information</strong>{" "}
-                  — standard server logs may include browser type, operating
+                  <strong className="text-[#FAFAFA]">Device information</strong>:
+                  standard server logs may include browser type, operating
                   system, and IP address. These are used for security and
                   debugging only.
                 </li>

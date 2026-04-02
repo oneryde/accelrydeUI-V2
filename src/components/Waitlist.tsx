@@ -46,8 +46,12 @@ export default function Waitlist() {
         body: JSON.stringify({ email }),
       });
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Something went wrong.");
+        const data = (await res.json().catch(() => ({}))) as {
+          error?: string;
+          details?: string;
+        };
+        const msg = [data.error, data.details].filter(Boolean).join("\n\n");
+        throw new Error(msg || "Something went wrong.");
       }
       setStatus("success");
       setEmail("");
@@ -63,29 +67,43 @@ export default function Waitlist() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full pointer-events-none" style={{ background: "radial-gradient(ellipse, rgba(255,79,0,0.08) 0%, transparent 70%)" }} />
 
       <div
-        className={`relative z-10 max-w-2xl mx-auto px-6 text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        className={`relative z-10 w-full px-6 sm:px-8 lg:px-12 xl:px-16 text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
         <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#FF4F00]">
           Early Access
         </span>
         <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.02em] text-metallic">
-          Help us ship it right
+          Ride with us from day one
         </h2>
-        <p className="mt-4 text-[#A1A1AA] text-lg max-w-md mx-auto">
-          Early riders shape what we build. Your feedback lands directly in our
-          build queue.
+        <p className="mt-4 text-[#A1A1AA] text-lg max-w-none">
+          Early riders don&apos;t just test features, they shape what we build next.
+          Your feedback goes straight into our sprint.
         </p>
 
         {status === "success" ? (
-          <div className="mt-10 p-8 rounded-2xl border border-[#FF4F00]/20 bg-[#FF4F00]/5 backdrop-blur-sm">
-            <div className="text-3xl mb-3">&#10003;</div>
-            <p className="text-white font-semibold text-lg">You&apos;re on the list</p>
+          <div className="mt-10 p-8 rounded-2xl border border-[#FF4F00]/20 bg-[#FF4F00]/5 backdrop-blur-sm" style={{ animation: "success-scale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards" }}>
+            <div className="flex justify-center mb-4">
+              <div className="w-14 h-14 rounded-full bg-[#FF4F00]/15 flex items-center justify-center">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#FF4F00]">
+                  <path
+                    d="M5 13l4 4L19 7"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeDasharray="30"
+                    style={{ animation: "draw-check 0.6s 0.3s ease forwards", strokeDashoffset: 30 }}
+                  />
+                </svg>
+              </div>
+            </div>
+            <p className="text-white font-semibold text-lg">You&apos;re in. Welcome aboard.</p>
             <p className="text-[#A1A1AA] text-sm mt-2">
-              We&apos;ll reach out when the beta is ready. Thanks for riding with us early.
+              We&apos;ll ping you the moment the beta opens. Until then, keep riding.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="mt-10 max-w-md mx-auto">
+          <form onSubmit={handleSubmit} className="mt-10 w-full max-w-2xl mx-auto">
             <div className="flex flex-col sm:flex-row gap-3">
               <div className="flex-1 relative">
                 <input
@@ -103,7 +121,7 @@ export default function Waitlist() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="px-7 py-4 rounded-2xl text-white font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,79,0,0.3)] disabled:opacity-50 disabled:cursor-not-allowed text-sm whitespace-nowrap"
+                className="btn-shimmer px-7 py-4 rounded-2xl text-white font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,79,0,0.3)] hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed text-sm whitespace-nowrap"
                 style={{ background: "linear-gradient(135deg, #FF4F00, #FF7F2A)" }}
               >
                 {status === "loading" ? (
@@ -115,7 +133,7 @@ export default function Waitlist() {
                     Joining...
                   </span>
                 ) : (
-                  "Join the beta"
+                  "Get early access"
                 )}
               </button>
             </div>
@@ -125,7 +143,7 @@ export default function Waitlist() {
             )}
 
             <p className="mt-4 text-xs text-[#52525B]">
-              We&apos;ll only use your email to send beta updates. No spam, ever.{" "}
+              Zero spam. Just a heads-up when the beta drops.{" "}
               <a href="/privacy" className="underline hover:text-[#A1A1AA] transition-colors">Privacy Policy</a>.
             </p>
           </form>
