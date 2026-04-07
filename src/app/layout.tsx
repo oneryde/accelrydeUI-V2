@@ -40,6 +40,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    apple: "/favicon.png", // optional: same asset for “Add to Home Screen”
+  },
 };
 
 const jsonLd = {
