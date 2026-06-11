@@ -42,7 +42,7 @@ export default function PrivacyPage() {
               </p>
               <p className="mt-3">
                 For questions, contact us at{" "}
-                <a href="mailto:privacy@trilyt.app" className="text-[#FF6600] hover:underline">
+                <a href="mailto:contact@accelryde.com" className="text-[#FF6600] hover:underline">
                   contact@accelryde.com
                 </a>
               </p>
@@ -198,8 +198,8 @@ export default function PrivacyPage() {
               </ul>
               <p>
                 To exercise any of these rights, email{" "}
-                <a href="mailto:privacy@trilyt.app" className="text-[#FF6600] hover:underline">
-                  privacy@trilyt.app
+                <a href="mailto:contact@accelryde.com" className="text-[#FF6600] hover:underline">
+                  contact@accelryde.com
                 </a>
                 . We will respond within 30 days.
               </p>
@@ -231,8 +231,8 @@ export default function PrivacyPage() {
                 Trilyt is not intended for children under the age of 18. We do not knowingly
                 collect personal data from minors. If you believe a minor has created an account,
                 please contact us at{" "}
-                <a href="mailto:privacy@trilyt.app" className="text-[#FF6600] hover:underline">
-                  privacy@trilyt.app
+                <a href="mailto:contact@accelryde.com" className="text-[#FF6600] hover:underline">
+                  contact@accelryde.com
                 </a>{" "}
                 and we will delete the account promptly.
               </p>
@@ -294,8 +294,8 @@ export default function PrivacyPage() {
                 <li><strong className="text-[#FAFAFA]">Company:</strong> Accelryde Technologies LLP</li>
                 <li>
                   <strong className="text-[#FAFAFA]">Email:</strong>{" "}
-                  <a href="mailto:privacy@trilyt.app" className="text-[#FF6600] hover:underline">
-                    privacy@trilyt.app
+                  <a href="mailto:contact@accelryde.com" className="text-[#FF6600] hover:underline">
+                    contact@accelryde.com
                   </a>
                 </li>
                 <li><strong className="text-[#FAFAFA]">Response time:</strong> Within 30 days</li>
@@ -313,8 +313,8 @@ export default function PrivacyPage() {
                 <li><strong className="text-[#FAFAFA]">Accelryde Technologies LLP</strong></li>
                 <li>
                   Email:{" "}
-                  <a href="mailto:privacy@trilyt.app" className="text-[#FF6600] hover:underline">
-                    privacy@trilyt.app
+                  <a href="mailto:contact@accelryde.com" className="text-[#FF6600] hover:underline">
+                    contact@accelryde.com
                   </a>
                 </li>
                 <li>
