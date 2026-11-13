@@ -1,6 +1,5 @@
 {
   "redirects": [
-    { "source": "/privacy", "destination": "https://trilyt.com/privacy", "permanent": true },
-    { "source": "/(.*)", "destination": "https://trilyt.com/about-accelryde", "permanent": true }
+    { "source": "/privacy", "destination": "https://trilyt.com/privacy", "permanent": true }
   ]
 }
