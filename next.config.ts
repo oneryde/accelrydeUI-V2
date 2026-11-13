@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: projectRoot,
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        // The company homepage is a single static page in public/site.
+        { source: "/", destination: "/site/index.html" },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
 };
 
 export default nextConfig;
