@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AccelRyde: software for people who ride</title>
+<meta name="description" content="AccelRyde Technologies LLP builds Trilyt, the group ride and travel app for India, and the booking and operations software that travel operators run their trips on.">
+<meta name="theme-color" content="#171B2E">
+<link rel="canonical" href="https://accelryde.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AccelRyde">
+<meta property="og:title" content="AccelRyde: software for people who ride">
+<meta property="og:description" content="We build Trilyt, the app that keeps a group ride on one route, and the booking software travel operators run their trips on.">
+<meta property="og:url" content="https://accelryde.com/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171B2E'/%3E%3Cpath d='M8 26 16 6l8 20' stroke='%23EEF0F5' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 24v-5m0-4v-4' stroke='%23FFC400' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<!--FONTS-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Geist:wght@400..700&display=swap">
+<!--/FONTS-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AccelRyde",
+  "legalName": "AccelRyde Technologies LLP",
+  "url": "https://accelryde.com",
+  "email": "contact@accelryde.com",
+  "foundingDate": "2026-05-15",
+  "description": "AccelRyde builds Trilyt, a group ride and travel app for India, and booking and operations software for travel operators.",
+  "address": { "@type": "PostalAddress", "addressRegion": "Delhi", "addressCountry": "IN" },
+  "founder": [
+    { "@type": "Person", "name": "Piyush Choudhary", "jobTitle": "Co-Founder and Director", "sameAs": "https://www.linkedin.com/in/piyush-choudhary3008/" },
+    { "@type": "Person", "name": "Soumik Barua", "jobTitle": "Co-Founder and Director", "sameAs": "https://www.linkedin.com/in/soumik-barua-205363154" }
+  ],
+  "sameAs": ["https://www.linkedin.com/company/trilyt-app/", "https://www.instagram.com/trilyt.app/"]
+}
+</script>
+<style>
+:root{
+  --asphalt:#171B2E;
+  --asphalt-2:#1F2440;
+  --road:#2A3052;
+  --line:#383F63;
+  --chalk:#EEF0F5;
+  --muted:#A7AEC6;
+  --blaze:#FF5A1F;
+  --blaze-deep:#E6460C;
+  --highway:#FFC400;
+  --state:#2E9E5B;
+  --display:'Archivo','Arial Black','Helvetica Neue',Arial,sans-serif;
+  --text:'Geist',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --gutter:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--asphalt);color:var(--chalk);font-family:var(--text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--highway);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:12px;background:var(--highway);color:var(--asphalt);padding:10px 16px;border-radius:8px;font-weight:600;z-index:10}
+.skip:focus{left:12px}
+.wrap{width:min(1240px,100% - 2*var(--gutter));margin-inline:auto}
+
+/* type */
+.display{font-family:var(--display);font-stretch:125%;font-weight:800;letter-spacing:-.025em;line-height:.98}
+h1.display{font-size:clamp(40px,7.4vw,108px)}
+h2.display{font-size:clamp(30px,4.6vw,62px);line-height:1.04}
+h3{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.015em;line-height:1.1}
+.lede{font-size:clamp(18px,1.7vw,22px);line-height:1.5;color:var(--muted);max-width:54ch}
+.lede strong{color:var(--chalk);font-weight:500}
+p{max-width:62ch}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--text);padding:16px 22px;border-radius:999px;text-decoration:none;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn--blaze{background:var(--blaze);color:var(--asphalt)}
+.btn--blaze:hover{background:#ff7340}
+.btn--ghost{border-color:var(--line);color:var(--chalk)}
+.btn--ghost:hover{border-color:var(--chalk)}
+.btn--ink{background:var(--asphalt);color:var(--chalk)}
+.btn--ink:hover{background:#262c4d}
+.btn--outline-ink{border-color:#B9BED0;color:var(--asphalt)}
+.btn--outline-ink:hover{border-color:var(--asphalt)}
+
+/* header */
+.top{padding-block:22px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:21px;letter-spacing:-.02em}
+.nav{display:flex;align-items:center;gap:clamp(16px,3vw,36px)}
+.nav a{text-decoration:none;font-size:15px;color:var(--muted)}
+.nav a:hover{color:var(--chalk)}
+.nav .btn{padding:11px 18px;font-size:15px;color:var(--asphalt)}
+.nav .btn:hover{color:var(--asphalt)}
+@media (max-width:820px){.nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding-top:clamp(40px,7vw,96px)}
+.hero h1{max-width:12.5ch}
+.hero .lede{margin-top:clamp(22px,2.6vw,36px)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(26px,3vw,40px)}
+.roadside{position:relative;margin-top:clamp(36px,6vw,80px)}
+.stones{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:14px clamp(16px,3vw,36px);align-items:flex-end;margin-bottom:-14px}
+.stone{position:relative;width:clamp(128px,13vw,156px);padding:clamp(42px,4vw,50px) 8px 14px;border-radius:70px 70px 6px 6px;background:var(--chalk);color:var(--asphalt);text-align:center;box-shadow:inset 0 -10px 0 rgba(23,27,46,.07)}
+.stone::before{content:"";position:absolute;inset:0 0 auto 0;height:34px;border-radius:70px 70px 0 0;background:var(--cap,var(--highway))}
+.stone--green{--cap:var(--state)}
+.stone--orange{--cap:var(--blaze)}
+.stone b{display:block;font-family:var(--display);font-stretch:110%;font-weight:800;font-size:clamp(21px,2vw,26px);letter-spacing:-.03em;line-height:1}
+.stone span{display:block;margin-top:6px;font-size:13px;line-height:1.25;font-weight:500}
+.stone-note{align-self:center;max-width:30ch;font-size:13px;line-height:1.45;color:var(--muted);padding-bottom:10px}
+@media (max-width:560px){.stone-note{flex-basis:100%;max-width:none;order:3;padding-bottom:18px}}
+.road{width:100%;height:clamp(150px,18vw,230px)}
+.road .reveal{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s .25s cubic-bezier(.3,.1,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.rider{opacity:0;animation:show .01s forwards}
+.rider--1,.rider--2,.rider--3{animation-delay:1s}
+@keyframes show{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .road .reveal{animation:none;stroke-dashoffset:0}
+  .rider{animation:none;opacity:1}
+  html{scroll-behavior:auto}
+}
+
+/* sections */
+.band{padding-block:clamp(72px,10vw,136px)}
+.band--rule{border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
+
+/* products */
+.products{display:grid;grid-template-columns:7fr 5fr;gap:clamp(16px,2vw,28px);align-items:stretch}
+@media (max-width:980px){.products{grid-template-columns:1fr}}
+.panel{border-radius:26px;padding:clamp(26px,3.6vw,52px);display:flex;flex-direction:column;gap:clamp(22px,2.6vw,34px)}
+.panel--dark{background:var(--asphalt-2);border:1px solid var(--line)}
+.panel--chalk{background:var(--chalk);color:var(--asphalt)}
+.panel .lede{font-size:clamp(17px,1.5vw,20px)}
+.panel--chalk .lede{color:#434A6B}
+.feat{list-style:none;padding:0;display:grid}
+.feat li{display:grid;grid-template-columns:minmax(190px,.9fr) 2fr;gap:6px 28px;padding-block:16px;border-top:1px solid var(--line)}
+.feat li:last-child{border-bottom:1px solid var(--line)}
+.feat dt,.feat .k{font-weight:600;color:var(--chalk)}
+.feat .v{color:var(--muted)}
+@media (max-width:620px){.feat li{grid-template-columns:1fr}}
+.panel--chalk .feat li{grid-template-columns:1fr;border-color:#CDD1E0}
+.panel--chalk .feat .k{color:var(--asphalt)}
+.panel--chalk .feat .v{color:#434A6B}
+.fine{font-size:14px;line-height:1.5;color:#434A6B;border-left:4px solid var(--highway);padding-left:14px}
+.panel .cta{margin-top:auto}
+
+/* ai: stops along a road */
+.ai-grid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(28px,5vw,80px)}
+@media (max-width:900px){.ai-grid{grid-template-columns:1fr}}
+.stops{list-style:none;padding:0;margin:0;position:relative;padding-left:34px}
+.stops::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;border-left:4px dashed var(--highway);opacity:.9}
+.stops li{position:relative;padding-bottom:clamp(26px,3vw,40px)}
+.stops li:last-child{padding-bottom:0}
+.stops li::before{content:"";position:absolute;left:-34px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--asphalt);border:4px solid var(--blaze)}
+.stops p{color:var(--muted);margin-top:8px}
+.next{margin-top:clamp(28px,3vw,44px);padding-top:22px;border-top:1px solid var(--line);color:var(--muted);max-width:60ch}
+
+/* story */
+.story{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,80px);align-items:end}
+@media (max-width:900px){.story{grid-template-columns:1fr}}
+.story p{color:var(--muted);font-size:clamp(17px,1.5vw,19px)}
+.story p+p{margin-top:1em}
+.story p strong{color:var(--chalk);font-weight:500}
+
+/* company */
+.company{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,5vw,80px)}
+@media (max-width:900px){.company{grid-template-columns:1fr}}
+.facts{display:grid;margin:0}
+.facts div{display:grid;grid-template-columns:minmax(130px,.55fr) 1.6fr;gap:6px 24px;padding-block:15px;border-top:1px solid var(--line)}
+.facts div:last-child{border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted);font-size:15px}
+.facts dd{margin:0}
+@media (max-width:560px){.facts div{grid-template-columns:1fr}}
+.team{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,24px);margin-top:clamp(24px,3vw,40px)}
+@media (max-width:560px){.team{grid-template-columns:1fr}}
+.person{padding:22px 22px 20px;border:1px solid var(--line);border-radius:18px;display:grid;gap:4px}
+.person b{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:20px;letter-spacing:-.01em}
+.person span{color:var(--muted);font-size:15px}
+.person a{margin-top:10px;font-size:15px;font-weight:600;color:var(--highway);text-underline-offset:4px}
+
+/* contact */
+.contact{display:grid;gap:clamp(20px,3vw,34px)}
+.mail{font-family:var(--display);font-stretch:125%;font-weight:800;letter-spacing:-.03em;line-height:1;font-size:clamp(18px,5.4vw,72px);text-decoration:none;white-space:nowrap;width:fit-content;border-bottom:.07em solid var(--blaze);padding-bottom:.08em}
+.mail:hover{color:var(--blaze)}
+.links{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:16px}
+.links a{color:var(--muted);text-underline-offset:4px}
+.links a:hover{color:var(--chalk)}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding-block:34px 44px;color:var(--muted);font-size:14px}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
+.foot a{text-underline-offset:3px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="AccelRyde home">
+      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1F2440"/><path d="M8 26 16 6l8 20" stroke="#EEF0F5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 24v-5m0-4v-4" stroke="#FFC400" stroke-width="2.5" stroke-linecap="round"/></svg>
+      AccelRyde
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#products">Products</a>
+      <a href="#ai">AI</a>
+      <a href="#company">Company</a>
+      <a class="btn btn--blaze" href="mailto:contact@accelryde.com">Email us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="wrap">
+      <h1 id="h-hero" class="display">Software for people who ride.</h1>
+      <p class="lede">AccelRyde builds <strong>Trilyt</strong>, the app that keeps a group on the same route, and the booking software that travel operators run their trips on.</p>
+      <div class="cta">
+        <a class="btn btn--blaze" href="#products">See what we build</a>
+        <a class="btn btn--ghost" href="https://trilyt.com/demo">Watch the operator demo</a>
+      </div>
+    </div>
+
+    <div class="roadside">
+      <div class="wrap">
+        <div class="stones">
+          <div class="stone"><b>25,000+</b><span>km navigated</span></div>
+          <div class="stone stone--green"><b>3,500+</b><span>users</span></div>
+          <p class="stone-note">Trilyt usage as of October 2026. Available on Android and iOS.</p>
+        </div>
+      </div>
+      <svg class="road" viewBox="0 0 1440 230" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A winding road with three riders travelling the same route together">
+        <defs>
+          <mask id="reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="230">
+            <path class="reveal" pathLength="1" d="M-20 150C190 70 360 62 540 118S880 196 1100 128 1360 62 1470 96" fill="none" stroke="#fff" stroke-width="130"/>
+          </mask>
+        </defs>
+        <g mask="url(#reveal)">
+          <path d="M-20 150C190 70 360 62 540 118S880 196 1100 128 1360 62 1470 96" fill="none" stroke="#EEF0F5" stroke-opacity=".22" stroke-width="74"/>
+          <path d="M-20 150C190 70 360 62 540 118S880 196 1100 128 1360 62 1470 96" fill="none" stroke="#2A3052" stroke-width="68"/>
+          <path id="route" d="M-20 150C190 70 360 62 540 118S880 196 1100 128 1360 62 1470 96" fill="none" stroke="#FFC400" stroke-width="3.5" stroke-dasharray="20 18"/>
+        </g>
+        <g id="riders">
+          <circle class="rider rider--1" r="9" fill="#FF5A1F" stroke="#171B2E" stroke-width="3"><animateMotion dur="6.5s" begin="1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .1 .3 1" keyPoints="0;0.76" rotate="0"><mpath href="#route"/></animateMotion></circle>
+          <circle class="rider rider--2" r="9" fill="#EEF0F5" stroke="#171B2E" stroke-width="3"><animateMotion dur="6.5s" begin="1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .1 .3 1" keyPoints="0;0.72" rotate="0"><mpath href="#route"/></animateMotion></circle>
+          <circle class="rider rider--3" r="9" fill="#FFC400" stroke="#171B2E" stroke-width="3"><animateMotion dur="6.5s" begin="1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .1 .3 1" keyPoints="0;0.68" rotate="0"><mpath href="#route"/></animateMotion></circle>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section id="products" class="band" aria-labelledby="h-products">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="h-products" class="display">Two products, one idea.</h2>
+        <p class="lede">Trips go better when everyone works from the same plan. Trilyt does that for the riders, and Trilyt for operators does it for the people who run the trip.</p>
+      </div>
+
+      <div class="products">
+        <article class="panel panel--dark" id="trilyt" aria-labelledby="h-trilyt">
+          <div>
+            <h3 id="h-trilyt">Trilyt</h3>
+            <p class="lede" style="margin-top:12px">Plan the trip, ride it together, and know what it costs before you leave. Built for riders and travellers in India.</p>
+          </div>
+          <ul class="feat" style="padding:0">
+            <li><span class="k">Two-wheeler navigation</span><span class="v">Turn-by-turn directions and route suggestions made for bikes and scooters.</span></li>
+            <li><span class="k">Ride sync</span><span class="v">Share the route once. Everyone follows the same path and the group stays together.</span></li>
+            <li><span class="k">Hands-free group voice</span><span class="v">Say "Hey Trilyt" and your message goes to the group over your Bluetooth headset.</span></li>
+            <li><span class="k">Plans and budgets</span><span class="v">Destinations, stops and timings in one place, with a cost estimate for the whole trip, solo or split.</span></li>
+            <li><span class="k">Communities and ride stats</span><span class="v">Find riding groups and weekend crews, start your own, and keep stats for every ride.</span></li>
+            <li><span class="k">AI recommendations</span><span class="v">Places ranked for the trip you are planning, learned from how you ride.</span></li>
+          </ul>
+          <div class="cta">
+            <a class="btn btn--blaze" href="https://apps.apple.com/in/app/trilyt/id6779645682">Download for iPhone</a>
+            <a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.trilyt.app">Download for Android</a>
+          </div>
+        </article>
+
+        <article class="panel panel--chalk" id="operators" aria-labelledby="h-ops">
+          <div>
+            <h3 id="h-ops">Trilyt for operators</h3>
+            <p class="lede" style="margin-top:12px">The software behind trek companies, bike expeditions, weekend camps and group tours.</p>
+          </div>
+          <ul class="feat" style="padding:0">
+            <li><span class="k">Bookings from every channel</span><span class="v">Website, WhatsApp, Instagram, walk-ins and agents land as one booking with a payment link.</span></li>
+            <li><span class="k">Paid to your own account</span><span class="v">Travellers pay through your own Razorpay account. Deposits, balances and refunds follow your policy.</span></li>
+            <li><span class="k">Built for India</span><span class="v">GST invoices, WhatsApp reminders, agent net rates, and a manifest for the guide's phone.</span></li>
+            <li><span class="k">Trilyt AI on the desk</span><span class="v">Type "Manali se 7 din ki Spiti trip banao" and it drafts the itinerary, prices and dates for you to publish.</span></li>
+          </ul>
+          <p class="fine">Free for 6 months, then 1.75% per online order, capped at ₹999. ₹0 a month.</p>
+          <div class="cta">
+            <a class="btn btn--ink" href="https://trilyt.com/demo">See the demo</a>
+            <a class="btn btn--outline-ink" href="https://trilyt.com/demo/enquiry">Send an enquiry</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai" class="band band--rule" aria-labelledby="h-ai">
+    <div class="wrap ai-grid">
+      <div class="sec-head" style="margin:0;align-content:start">
+        <h2 id="h-ai" class="display">How we use AI</h2>
+        <p class="lede">AI helps riders decide where to go. Today it does three jobs inside Trilyt.</p>
+      </div>
+      <div>
+        <ol class="stops">
+          <li>
+            <h3>It recommends places</h3>
+            <p>It surfaces the destinations, stops and experiences most worth a rider's time, ranked for the trip being planned rather than by generic popularity.</p>
+          </li>
+          <li>
+            <h3>It learns what you like</h3>
+            <p>Trilyt learns from how each rider plans, saves and rides, and uses that to personalise what it suggests next.</p>
+          </li>
+          <li>
+            <h3>It grows the places database</h3>
+            <p>When a rider looks for a spot we don't cover yet, AI gathers information about it from across the web and returns it in a clean, structured format. That helps us add verified places to Explore, so coverage grows with our community.</p>
+          </li>
+        </ol>
+        <p class="next">Next on the road: deeper trip planning, smarter routing and richer personalisation across the riding experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="band band--rule" aria-labelledby="h-why">
+    <div class="wrap story">
+      <h2 id="h-why" class="display">Five riders. Five different routes. The same destination, supposedly.</h2>
+      <div>
+        <p>Somebody is twenty kilometres behind, somebody else took the turn nobody agreed on, and the plan is spread across a group chat, a maps screenshot and a spreadsheet.</p>
+        <p><strong>We built AccelRyde because we lived every one of those moments.</strong> The chaos is real. The fix should be too.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="company" class="band band--rule" aria-labelledby="h-company">
+    <div class="wrap company">
+      <div class="sec-head" style="margin:0;align-content:start">
+        <h2 id="h-company" class="display">The company</h2>
+        <p class="lede">AccelRyde is a two-founder company based in India, building travel technology for riders and the operators who serve them.</p>
+      </div>
+      <div>
+        <dl class="facts">
+          <div><dt>Legal name</dt><dd>AccelRyde Technologies LLP</dd></div>
+          <div><dt>LLP identification number</dt><dd>ACY-1852</dd></div>
+          <div><dt>Incorporated</dt><dd>15 May 2026, in India, under the Limited Liability Partnership Act, 2008</dd></div>
+          <div><dt>Registered in</dt><dd>Delhi, India</dd></div>
+          <div><dt>Industry</dt><dd>Travel technology</dd></div>
+          <div><dt>First release</dt><dd>Trilyt, 8 August 2026</dd></div>
+          <div><dt>Contact</dt><dd><a href="mailto:contact@accelryde.com">contact@accelryde.com</a></dd></div>
+        </dl>
+        <div class="team">
+          <div class="person"><b>Piyush Choudhary</b><span>Co-Founder and Director, CEO</span><a href="https://www.linkedin.com/in/piyush-choudhary3008/">LinkedIn profile</a></div>
+          <div class="person"><b>Soumik Barua</b><span>Co-Founder and Director, CTO</span><a href="https://www.linkedin.com/in/soumik-barua-205363154">LinkedIn profile</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="band band--rule" aria-labelledby="h-contact">
+    <div class="wrap contact">
+      <h2 id="h-contact" class="display">Partnerships, press, support, or hello.</h2>
+      <a class="mail" href="mailto:contact@accelryde.com">contact@accelryde.com</a>
+      <div class="links">
+        <a href="https://www.linkedin.com/company/trilyt-app/">Trilyt on LinkedIn</a>
+        <a href="https://www.instagram.com/trilyt.app/">Trilyt on Instagram</a>
+        <a href="https://trilyt.com">trilyt.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>&copy; 2026 AccelRyde Technologies LLP. LLPIN ACY-1852. Registered in Delhi, India.</span>
+    <span><a href="https://trilyt.com/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="https://trilyt.com/terms">Terms</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var route=document.getElementById('route');
+  var riders=document.querySelectorAll('#riders circle');
+  if(!route||!riders.length||!route.getTotalLength) return;
+  var len=route.getTotalLength();
+  riders.forEach(function(c,i){
+    var a=c.querySelector('animateMotion'); if(a) a.remove();
+    var p=route.getPointAtLength(len*(0.76-i*0.04));
+    c.setAttribute('cx',p.x); c.setAttribute('cy',p.y);
+  });
+})();
+</script>
+</body>
+</html>
