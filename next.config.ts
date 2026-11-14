@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
       beforeFiles: [
         // The company homepage is a single static page in public/site.
         { source: "/", destination: "/site/index.html" },
+        // Browsers ask for /favicon.ico directly; answer with our own icon.
+        { source: "/favicon.ico", destination: "/site/favicon.svg" },
       ],
       afterFiles: [],
       fallback: [],

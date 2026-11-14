@@ -3,21 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AccelRyde: software for people who ride</title>
-<meta name="description" content="AccelRyde Technologies LLP builds Trilyt, the group ride and travel app for India, and the booking and operations software that travel operators run their trips on.">
-<meta name="theme-color" content="#171B2E">
-<link rel="canonical" href="https://accelryde.com/">
+<title>AccelRyde: travel software for riders and travel operators</title>
+<meta name="description" content="AccelRyde Technologies builds Trilyt, the group ride and travel app used by 4,200+ people in India, and Trilyt for operators, the booking and operations platform for travel companies.">
+<link rel="canonical" href="https://www.accelryde.com/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="AccelRyde">
-<meta property="og:title" content="AccelRyde: software for people who ride">
-<meta property="og:description" content="We build Trilyt, the app that keeps a group ride on one route, and the booking software travel operators run their trips on.">
-<meta property="og:url" content="https://accelryde.com/">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171B2E'/%3E%3Cpath d='M8 26 16 6l8 20' stroke='%23EEF0F5' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 24v-5m0-4v-4' stroke='%23FFC400' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:url" content="https://www.accelryde.com/">
+<meta property="og:title" content="AccelRyde: travel software for riders and travel operators">
+<meta property="og:description" content="We build Trilyt, the app groups use to ride and travel together, and the platform travel operators use to sell and run their trips.">
+<meta name="theme-color" content="#101828">
+<link rel="icon" href="/site/favicon.svg" type="image/svg+xml">
 <!--FONTS-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Geist:wght@400..700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&display=swap" rel="stylesheet">
 <!--/FONTS-->
 <script type="application/ld+json">
 {
@@ -25,372 +23,647 @@
   "@type": "Organization",
   "name": "AccelRyde",
   "legalName": "AccelRyde Technologies LLP",
-  "url": "https://accelryde.com",
+  "url": "https://www.accelryde.com/",
   "email": "contact@accelryde.com",
   "foundingDate": "2026-05-15",
-  "description": "AccelRyde builds Trilyt, a group ride and travel app for India, and booking and operations software for travel operators.",
-  "address": { "@type": "PostalAddress", "addressRegion": "Delhi", "addressCountry": "IN" },
-  "founder": [
-    { "@type": "Person", "name": "Piyush Choudhary", "jobTitle": "Co-Founder and Director", "sameAs": "https://www.linkedin.com/in/piyush-choudhary3008/" },
-    { "@type": "Person", "name": "Soumik Barua", "jobTitle": "Co-Founder and Director", "sameAs": "https://www.linkedin.com/in/soumik-barua-205363154" }
+  "description": "AccelRyde builds Trilyt, a group ride and travel app for India, and Trilyt for operators, a booking and operations platform for travel companies.",
+  "address": {"@type": "PostalAddress", "addressLocality": "New Delhi", "addressRegion": "Delhi", "postalCode": "110086", "addressCountry": "IN"},
+  "founders": [
+    {"@type": "Person", "name": "Piyush Choudhary", "jobTitle": "Co-Founder and CEO"},
+    {"@type": "Person", "name": "Soumik Barua", "jobTitle": "Co-Founder and CTO"}
   ],
-  "sameAs": ["https://www.linkedin.com/company/trilyt-app/", "https://www.instagram.com/trilyt.app/"]
+  "sameAs": ["https://www.linkedin.com/company/trilyt-app/", "https://www.instagram.com/trilyt.app/", "https://trilyt.com/"]
 }
 </script>
 <style>
 :root{
-  --asphalt:#171B2E;
-  --asphalt-2:#1F2440;
-  --road:#2A3052;
-  --line:#383F63;
-  --chalk:#EEF0F5;
-  --muted:#A7AEC6;
-  --blaze:#FF5A1F;
-  --blaze-deep:#E6460C;
-  --highway:#FFC400;
-  --state:#2E9E5B;
-  --display:'Archivo','Arial Black','Helvetica Neue',Arial,sans-serif;
-  --text:'Geist',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-  --gutter:clamp(20px,5vw,64px);
+  --ink:#101828; --ink-2:#1D2939; --ink-3:#344054;
+  --paper:#F5F6F8; --white:#FFFFFF; --line:#E4E7EC; --line-2:#D0D5DD;
+  --muted:#5D6779; --soft:#98A2B3;
+  --blaze:#FF5A1F; --blaze-ink:#C2400F; --blaze-wash:#FFF1EB;
+  --go:#12B76A; --go-wash:#E8F8F0; --amber:#F5A524; --amber-wash:#FEF5E4;
+  --sky:#2E90FA;
+  --r-lg:20px; --r-md:12px; --r-sm:8px;
+  --wrap:1200px;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 12px 32px -8px rgba(16,24,40,.14);
+  --shadow-lg:0 2px 4px rgba(16,24,40,.06),0 32px 64px -16px rgba(16,24,40,.28);
 }
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--asphalt);color:var(--chalk);font-family:var(--text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:Geist,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img,svg{display:block;max-width:100%}
-:focus-visible{outline:3px solid var(--highway);outline-offset:3px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:12px;background:var(--highway);color:var(--asphalt);padding:10px 16px;border-radius:8px;font-weight:600;z-index:10}
-.skip:focus{left:12px}
-.wrap{width:min(1240px,100% - 2*var(--gutter));margin-inline:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blaze);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
 
-/* type */
-.display{font-family:var(--display);font-stretch:125%;font-weight:800;letter-spacing:-.025em;line-height:.98}
-h1.display{font-size:clamp(40px,7.4vw,108px)}
-h2.display{font-size:clamp(30px,4.6vw,62px);line-height:1.04}
-h3{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.015em;line-height:1.1}
-.lede{font-size:clamp(18px,1.7vw,22px);line-height:1.5;color:var(--muted);max-width:54ch}
-.lede strong{color:var(--chalk);font-weight:500}
-p{max-width:62ch}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.03em;line-height:1.08}
+h1{font-size:clamp(2.6rem,5.4vw,4.5rem);letter-spacing:-.045em;line-height:1.02}
+h2{font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-.04em}
+h3{font-size:1.375rem;letter-spacing:-.02em;line-height:1.25}
+p{margin:0}
+.lede{font-size:clamp(1.0625rem,1.4vw,1.25rem);color:var(--muted);max-width:40em;line-height:1.55}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:.875rem;font-weight:500;color:var(--ink-3);margin-bottom:20px}
+.kicker i{width:8px;height:8px;border-radius:50%;background:var(--blaze);display:inline-block}
+.num{font-variant-numeric:tabular-nums}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--text);padding:16px 22px;border-radius:999px;text-decoration:none;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s}
-.btn--blaze{background:var(--blaze);color:var(--asphalt)}
-.btn--blaze:hover{background:#ff7340}
-.btn--ghost{border-color:var(--line);color:var(--chalk)}
-.btn--ghost:hover{border-color:var(--chalk)}
-.btn--ink{background:var(--asphalt);color:var(--chalk)}
-.btn--ink:hover{background:#262c4d}
-.btn--outline-ink{border-color:#B9BED0;color:var(--asphalt)}
-.btn--outline-ink:hover{border-color:var(--asphalt)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border-radius:999px;font:600 .9375rem/1 Geist,system-ui,sans-serif;text-decoration:none;border:1px solid transparent;transition:background-color .15s,border-color .15s,color .15s;white-space:nowrap}
+.btn--primary{background:var(--ink);color:#fff}
+.btn--primary:hover{background:var(--ink-3)}
+.btn--blaze{background:var(--blaze);color:#fff}
+.btn--blaze:hover{background:var(--blaze-ink)}
+.btn--line{border-color:var(--line-2);color:var(--ink);background:var(--white)}
+.btn--line:hover{border-color:var(--ink)}
+.btn--ghost-dark{border-color:rgba(255,255,255,.24);color:#fff}
+.btn--ghost-dark:hover{border-color:#fff}
+.btn svg{width:18px;height:18px}
 
-/* header */
-.top{padding-block:22px}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:21px;letter-spacing:-.02em}
-.nav{display:flex;align-items:center;gap:clamp(16px,3vw,36px)}
-.nav a{text-decoration:none;font-size:15px;color:var(--muted)}
-.nav a:hover{color:var(--chalk)}
-.nav .btn{padding:11px 18px;font-size:15px;color:var(--asphalt)}
-.nav .btn:hover{color:var(--asphalt)}
-@media (max-width:820px){.nav a:not(.btn){display:none}}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.is-scrolled{border-bottom-color:var(--line)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand{display:inline-block;text-decoration:none;font-weight:700;font-size:1.375rem;letter-spacing:-.045em;line-height:1;color:var(--ink)}
+.nav__links{display:flex;gap:32px;list-style:none;margin:0;padding:0}
+.nav__links a{text-decoration:none;font-size:.9375rem;color:var(--ink-3);font-weight:500}
+.nav__links a:hover{color:var(--ink)}
+.nav__cta{display:flex;gap:10px}
+.nav__cta .btn{height:40px;padding:0 18px;font-size:.875rem}
 
 /* hero */
-.hero{padding-top:clamp(40px,7vw,96px)}
-.hero h1{max-width:12.5ch}
-.hero .lede{margin-top:clamp(22px,2.6vw,36px)}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(26px,3vw,40px)}
-.roadside{position:relative;margin-top:clamp(36px,6vw,80px)}
-.stones{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:14px clamp(16px,3vw,36px);align-items:flex-end;margin-bottom:-14px}
-.stone{position:relative;width:clamp(128px,13vw,156px);padding:clamp(42px,4vw,50px) 8px 14px;border-radius:70px 70px 6px 6px;background:var(--chalk);color:var(--asphalt);text-align:center;box-shadow:inset 0 -10px 0 rgba(23,27,46,.07)}
-.stone::before{content:"";position:absolute;inset:0 0 auto 0;height:34px;border-radius:70px 70px 0 0;background:var(--cap,var(--highway))}
-.stone--green{--cap:var(--state)}
-.stone--orange{--cap:var(--blaze)}
-.stone b{display:block;font-family:var(--display);font-stretch:110%;font-weight:800;font-size:clamp(21px,2vw,26px);letter-spacing:-.03em;line-height:1}
-.stone span{display:block;margin-top:6px;font-size:13px;line-height:1.25;font-weight:500}
-.stone-note{align-self:center;max-width:30ch;font-size:13px;line-height:1.45;color:var(--muted);padding-bottom:10px}
-@media (max-width:560px){.stone-note{flex-basis:100%;max-width:none;order:3;padding-bottom:18px}}
-.road{width:100%;height:clamp(150px,18vw,230px)}
-.road .reveal{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s .25s cubic-bezier(.3,.1,.2,1) forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.rider{opacity:0;animation:show .01s forwards}
-.rider--1,.rider--2,.rider--3{animation-delay:1s}
-@keyframes show{to{opacity:1}}
-@media (prefers-reduced-motion:reduce){
-  .road .reveal{animation:none;stroke-dashoffset:0}
-  .rider{animation:none;opacity:1}
-  html{scroll-behavior:auto}
-}
+.hero{padding:72px 0 0;background:linear-gradient(180deg,var(--white) 0%,var(--paper) 100%);overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center}
+.hero__copy h1{max-width:11.5em}
+.hero__copy .lede{margin-top:24px}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.stores{display:flex;align-items:center;gap:16px;margin-top:28px;color:var(--muted);font-size:.875rem}
+.stores a{display:inline-flex;align-items:center;gap:8px;color:var(--ink-3);text-decoration:none;font-weight:500}
+.stores a:hover{color:var(--ink)}
+.stores svg{width:18px;height:18px}
+.stores span.sep{width:1px;height:16px;background:var(--line-2)}
+
+.stage{position:relative;height:620px;margin-right:-32px}
+.stage__bg{position:absolute;inset:0 0 0 28px;border-radius:28px 0 0 0;background:var(--ink);overflow:hidden}
+.stage__bg svg{position:absolute;inset:0;width:100%;height:100%}
+.phone{position:absolute;left:0;top:48px;width:286px;height:580px;border-radius:44px;background:#0A0F1C;padding:10px;box-shadow:var(--shadow-lg);z-index:3}
+.phone__screen{position:relative;width:100%;height:100%;border-radius:35px;overflow:hidden;background:#EEF1F5}
+.phone__notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:92px;height:26px;border-radius:20px;background:#0A0F1C;z-index:5}
+
+.fcards{position:absolute;right:28px;top:150px;width:272px;list-style:none;margin:0;padding:0;display:grid;gap:14px;z-index:4}
+.fcard{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:var(--shadow-lg)}
+.fcard__ico{width:40px;height:40px;border-radius:12px;background:var(--blaze-wash);color:var(--blaze-ink);display:grid;place-items:center}
+.fcard__ico svg{width:20px;height:20px}
+.fcard b{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.fcard span{display:block;font-size:13px;color:var(--muted);line-height:1.35;margin-top:2px}
+.bar{height:8px;border-radius:8px;background:var(--paper);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--blaze);border-radius:8px}
+
+/* metrics */
+.metrics{background:var(--paper);padding:56px 0 88px}
+.metrics__row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--white);overflow:hidden}
+.metric{padding:28px 28px 26px;border-left:1px solid var(--line)}
+.metric:first-child{border-left:0}
+.metric b{display:block;font-size:clamp(2rem,3.2vw,2.75rem);font-weight:600;letter-spacing:-.04em;line-height:1}
+.metric span{display:block;margin-top:10px;color:var(--muted);font-size:.9375rem;line-height:1.4}
+.metrics__note{margin-top:14px;font-size:.8125rem;color:var(--soft)}
 
 /* sections */
-.band{padding-block:clamp(72px,10vw,136px)}
-.band--rule{border-top:1px solid var(--line)}
-.sec-head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
+section{scroll-margin-top:80px}
+.sec{padding:120px 0}
+.sec--paper{background:var(--paper)}
+.sec__head{max-width:760px;margin-bottom:64px}
+.sec__head .lede{margin-top:20px}
 
-/* products */
-.products{display:grid;grid-template-columns:7fr 5fr;gap:clamp(16px,2vw,28px);align-items:stretch}
-@media (max-width:980px){.products{grid-template-columns:1fr}}
-.panel{border-radius:26px;padding:clamp(26px,3.6vw,52px);display:flex;flex-direction:column;gap:clamp(22px,2.6vw,34px)}
-.panel--dark{background:var(--asphalt-2);border:1px solid var(--line)}
-.panel--chalk{background:var(--chalk);color:var(--asphalt)}
-.panel .lede{font-size:clamp(17px,1.5vw,20px)}
-.panel--chalk .lede{color:#434A6B}
-.feat{list-style:none;padding:0;display:grid}
-.feat li{display:grid;grid-template-columns:minmax(190px,.9fr) 2fr;gap:6px 28px;padding-block:16px;border-top:1px solid var(--line)}
-.feat li:last-child{border-bottom:1px solid var(--line)}
-.feat dt,.feat .k{font-weight:600;color:var(--chalk)}
-.feat .v{color:var(--muted)}
-@media (max-width:620px){.feat li{grid-template-columns:1fr}}
-.panel--chalk .feat li{grid-template-columns:1fr;border-color:#CDD1E0}
-.panel--chalk .feat .k{color:var(--asphalt)}
-.panel--chalk .feat .v{color:#434A6B}
-.fine{font-size:14px;line-height:1.5;color:#434A6B;border-left:4px solid var(--highway);padding-left:14px}
-.panel .cta{margin-top:auto}
+/* product: rider app */
+.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.feat-list{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.feat-list li{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.feat-list .ico{width:40px;height:40px;border-radius:10px;background:var(--paper);display:grid;place-items:center;color:var(--ink)}
+.feat-list .ico svg{width:20px;height:20px}
+.feat-list b{display:block;font-weight:600;font-size:1rem;letter-spacing:-.01em}
+.feat-list span{display:block;color:var(--muted);font-size:.9375rem;line-height:1.5;margin-top:2px}
+.app__ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 
-/* ai: stops along a road */
-.ai-grid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(28px,5vw,80px)}
-@media (max-width:900px){.ai-grid{grid-template-columns:1fr}}
-.stops{list-style:none;padding:0;margin:0;position:relative;padding-left:34px}
-.stops::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;border-left:4px dashed var(--highway);opacity:.9}
-.stops li{position:relative;padding-bottom:clamp(26px,3vw,40px)}
-.stops li:last-child{padding-bottom:0}
-.stops li::before{content:"";position:absolute;left:-34px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--asphalt);border:4px solid var(--blaze)}
-.stops p{color:var(--muted);margin-top:8px}
-.next{margin-top:clamp(28px,3vw,44px);padding-top:22px;border-top:1px solid var(--line);color:var(--muted);max-width:60ch}
+.screens{position:relative;height:620px;background:var(--paper);border-radius:28px;overflow:hidden}
+.screens .phone{position:absolute;top:96px;width:170px;height:358px;border-radius:32px;padding:7px}
+.screens .phone__screen{border-radius:26px}
+.screens .phone__notch{width:66px;height:20px;top:8px}
+.screens .phone--a{left:calc(50% - 241px);top:150px}
+.screens .phone--b{left:calc(50% - 85px);top:96px;z-index:4}
+.screens .phone--c{left:calc(50% + 71px);top:150px}
 
-/* story */
-.story{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,80px);align-items:end}
-@media (max-width:900px){.story{grid-template-columns:1fr}}
-.story p{color:var(--muted);font-size:clamp(17px,1.5vw,19px)}
-.story p+p{margin-top:1em}
-.story p strong{color:var(--chalk);font-weight:500}
+.phone__screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+
+/* operators */
+.ops{background:var(--ink);color:#fff;padding:120px 0 0;overflow:hidden}
+.ops .kicker{color:#C9D0DC}
+.ops .lede{color:#B6BFCE}
+.ops__top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px;align-items:end;margin-bottom:56px}
+.pilot{border:1px solid rgba(255,255,255,.14);border-radius:var(--r-lg);padding:28px;background:rgba(255,255,255,.04)}
+.pilot b{display:flex;align-items:center;gap:10px;font-size:1.0625rem;font-weight:600}
+.pilot b i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--go);box-shadow:0 0 0 4px rgba(18,183,106,.2)}
+.pilot p{color:#B6BFCE;margin-top:10px;font-size:.9375rem}
+.pilot .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.pilot .btn{height:44px;font-size:.875rem}
+
+.dash{position:relative;border-radius:16px 16px 0 0;background:#fff;color:var(--ink);box-shadow:0 -24px 80px rgba(0,0,0,.35);overflow:hidden;font-size:13px}
+.dash__bar{height:40px;background:#F2F4F7;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 16px}
+.dash__bar i{width:10px;height:10px;border-radius:50%;background:#D0D5DD}
+.dash__bar span{margin-left:12px;font-size:12px;color:var(--muted);font-weight:500}
+.dash__body{display:grid;grid-template-columns:208px 1fr;min-height:520px}
+.dash__side{border-right:1px solid var(--line);padding:18px 12px;background:#FCFCFD}
+.dash__org{display:flex;align-items:center;gap:10px;padding:6px 8px 18px}
+.dash__org .lg{width:30px;height:30px;border-radius:8px;background:#0E7C66;color:#fff;display:grid;place-items:center;font-weight:700;font-size:12px}
+.dash__org b{display:block;font-size:13px;line-height:1.2}
+.dash__org small{color:var(--muted);font-size:11px}
+.dash__nav{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.dash__nav li{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;color:var(--ink-3);font-weight:500}
+.dash__nav li svg{width:16px;height:16px;color:var(--soft)}
+.dash__nav li.on{background:var(--paper);color:var(--ink)}
+.dash__nav li.on svg{color:var(--ink)}
+.dash__nav .count{margin-left:auto;font-size:11px;background:var(--blaze-wash);color:var(--blaze-ink);padding:1px 7px;border-radius:999px;font-weight:600}
+.dash__main{padding:24px 28px}
+.dash__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.dash__head h4{margin:0;font-size:20px;font-weight:650;letter-spacing:-.02em}
+.dash__head small{color:var(--muted)}
+.dash__head .new{height:34px;padding:0 14px;border-radius:8px;background:var(--ink);color:#fff;font-weight:600;font-size:12px;display:inline-flex;align-items:center}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.kpi span{color:var(--muted);font-size:12px}
+.kpi b{display:block;font-size:22px;font-weight:650;letter-spacing:-.03em;margin-top:4px}
+.kpi em{font-style:normal;font-size:11px;font-weight:600;color:#067647}
+.tbl{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tbl th{text-align:left;font-weight:500;color:var(--muted);font-size:12px;background:#FCFCFD;padding:10px 14px;border-bottom:1px solid var(--line)}
+.tbl td{padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td b{font-weight:600}
+.tbl td small{display:block;color:var(--muted);font-size:11px}
+.seats{display:flex;align-items:center;gap:8px}
+.seats .bar{width:64px;height:6px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px}
+.pill i{width:6px;height:6px;border-radius:50%}
+.pill--ok{background:var(--go-wash);color:#067647}.pill--ok i{background:var(--go)}
+.pill--fill{background:var(--amber-wash);color:#93370D}.pill--fill i{background:var(--amber)}
+.src{display:flex;gap:6px}
+.src span{font-size:11px;padding:2px 7px;border-radius:6px;background:var(--paper);color:var(--ink-3)}
+.dash__note{position:absolute;right:16px;bottom:10px;font-size:11px;color:var(--soft)}
+
+.ops__feats{background:var(--white);color:var(--ink);padding:88px 0 120px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.grid4 .ico{width:44px;height:44px;border-radius:12px;background:var(--blaze-wash);color:var(--blaze-ink);display:grid;place-items:center;margin-bottom:20px}
+.grid4 .ico svg{width:22px;height:22px}
+.grid4 h3{font-size:1.125rem}
+.grid4 p{color:var(--muted);font-size:.9375rem;margin-top:8px;line-height:1.55}
+.pricing{margin-top:72px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;border:1px solid var(--line);border-radius:var(--r-lg);padding:32px 36px;background:var(--paper)}
+.pricing h3{font-size:1.5rem}
+.pricing p{color:var(--muted);margin-top:6px}
+.pricing .price{display:flex;gap:40px}
+.pricing .price div b{display:block;font-size:2rem;font-weight:600;letter-spacing:-.04em;line-height:1}
+.pricing .price div span{display:block;color:var(--muted);font-size:.875rem;margin-top:8px;max-width:12em;line-height:1.35}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--white)}
+.step{padding:36px 32px 40px;border-left:1px solid var(--line);position:relative}
+.step:first-child{border-left:0}
+.step .n{font-size:.875rem;font-weight:600;color:var(--blaze-ink);display:flex;align-items:center;gap:10px}
+.step .n::after{content:"";flex:1;height:1px;background:var(--line)}
+.step h3{margin-top:22px}
+.step p{color:var(--muted);margin-top:10px;font-size:.9375rem}
+.step .who{display:inline-block;margin-top:20px;font-size:.8125rem;font-weight:500;color:var(--ink-3);background:var(--paper);padding:4px 10px;border-radius:999px}
+
+/* ai */
+.ai{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:start}
+.ai__list{display:grid;gap:16px}
+.ai__item{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--white)}
+.ai__item .ico{width:44px;height:44px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center}
+.ai__item .ico svg{width:22px;height:22px}
+.ai__item h3{font-size:1.0625rem}
+.ai__item p{color:var(--muted);font-size:.9375rem;margin-top:6px}
+.ai__item--ops{background:var(--ink);border-color:var(--ink);color:#fff}
+.ai__item--ops .ico{background:var(--blaze)}
+.ai__item--ops p{color:#B6BFCE}
+.ai__tag{display:inline-block;font-size:.75rem;font-weight:600;color:#FFB59A;margin-bottom:6px}
 
 /* company */
-.company{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,5vw,80px)}
-@media (max-width:900px){.company{grid-template-columns:1fr}}
-.facts{display:grid;margin:0}
-.facts div{display:grid;grid-template-columns:minmax(130px,.55fr) 1.6fr;gap:6px 24px;padding-block:15px;border-top:1px solid var(--line)}
-.facts div:last-child{border-bottom:1px solid var(--line)}
-.facts dt{color:var(--muted);font-size:15px}
-.facts dd{margin:0}
-@media (max-width:560px){.facts div{grid-template-columns:1fr}}
-.team{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,24px);margin-top:clamp(24px,3vw,40px)}
-@media (max-width:560px){.team{grid-template-columns:1fr}}
-.person{padding:22px 22px 20px;border:1px solid var(--line);border-radius:18px;display:grid;gap:4px}
-.person b{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:20px;letter-spacing:-.01em}
-.person span{color:var(--muted);font-size:15px}
-.person a{margin-top:10px;font-size:15px;font-weight:600;color:var(--highway);text-underline-offset:4px}
+.company{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px}
+.facts{margin:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.facts div{padding:20px 0;border-bottom:1px solid var(--line)}
+.facts div:nth-child(odd){padding-right:24px}
+.facts dt{font-size:.8125rem;color:var(--muted)}
+.facts dd{margin:4px 0 0;font-weight:550;font-size:1rem}
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.founder{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--white)}
+.founder .ph{width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;font-size:1.0625rem;letter-spacing:-.02em}
+.founder:nth-child(2) .ph{background:var(--blaze)}
+.founder b{display:block;margin-top:16px;font-size:1.0625rem;font-weight:600}
+.founder span{display:block;color:var(--muted);font-size:.9375rem}
+.founder a{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:.875rem;font-weight:500;color:var(--ink-3);text-decoration:none}
+.founder a:hover{color:var(--ink)}
+.founder a svg{width:16px;height:16px}
+.stack{margin-top:40px;padding:24px;border-radius:16px;background:var(--white);border:1px solid var(--line)}
+.stack b{font-weight:600}
+.stack p{color:var(--muted);font-size:.9375rem;margin-top:6px}
 
-/* contact */
-.contact{display:grid;gap:clamp(20px,3vw,34px)}
-.mail{font-family:var(--display);font-stretch:125%;font-weight:800;letter-spacing:-.03em;line-height:1;font-size:clamp(18px,5.4vw,72px);text-decoration:none;white-space:nowrap;width:fit-content;border-bottom:.07em solid var(--blaze);padding-bottom:.08em}
-.mail:hover{color:var(--blaze)}
-.links{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:16px}
-.links a{color:var(--muted);text-underline-offset:4px}
-.links a:hover{color:var(--chalk)}
+/* cta */
+.cta{background:var(--ink);color:#fff;border-radius:28px;padding:72px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center;position:relative;overflow:hidden}
+.cta h2{max-width:14em}
+.cta p{color:#B6BFCE;margin-top:16px;max-width:36em}
+.cta .btns{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
+.cta svg.road{position:absolute;right:-40px;bottom:-30px;width:520px;opacity:.5;pointer-events:none}
 
 /* footer */
-.foot{border-top:1px solid var(--line);padding-block:34px 44px;color:var(--muted);font-size:14px}
-.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
-.foot a{text-underline-offset:3px}
+.foot{padding:72px 0 40px;border-top:1px solid var(--line);margin-top:120px}
+.foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot h4{margin:0 0 14px;font-size:.875rem;font-weight:600}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.foot li a{text-decoration:none;color:var(--muted);font-size:.9375rem}
+.foot li a:hover{color:var(--ink)}
+.foot__about p{color:var(--muted);font-size:.9375rem;margin-top:16px;max-width:24em}
+.foot__base{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:.8125rem;color:var(--soft)}
+
+/* motion */
+.pop{opacity:0;transform:translateY(12px);animation:pop .6s cubic-bezier(.2,.7,.2,1) forwards}
+.pop--1{animation-delay:.35s}.pop--2{animation-delay:.55s}.pop--3{animation-delay:.75s}.pop--4{animation-delay:.95s}
+@keyframes pop{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .pop{animation:none;opacity:1;transform:none}
+}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav__links{display:none}
+  .hero__grid{grid-template-columns:1fr;gap:48px}
+  .stage{margin-right:0;height:600px}
+  .stage__bg{inset:0 0 0 40px;border-radius:28px}
+  .phone{left:0}
+  .app,.ai,.company,.ops__top{grid-template-columns:1fr;gap:48px}
+  .grid4{grid-template-columns:1fr 1fr}
+  .dash__body{grid-template-columns:1fr}
+  .dash__side{display:none}
+  .kpis{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .nav__cta .btn--line{display:none}
+  .hero{padding-top:40px}
+  .stage__bg{inset:0 -20px 0 24px;border-radius:24px 0 0 24px}
+  .phone{width:250px;height:510px;top:28px;border-radius:40px}
+  .phone__screen{border-radius:31px}
+  .stage{height:auto;padding-bottom:24px}
+  .stage .phone{position:relative;margin-left:8px}
+  .fcards{position:relative;right:auto;top:auto;width:auto;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 0 36px;padding-right:4px}
+  .fcard{grid-template-columns:1fr;gap:8px;padding:12px}
+  .fcard__ico{width:32px;height:32px;border-radius:10px}
+  .fcard b{font-size:14px}
+  .fcard span{font-size:12px}
+  .metrics__row{grid-template-columns:1fr 1fr}
+  .metric:nth-child(3){border-left:0}
+  .metric:nth-child(n+3){border-top:1px solid var(--line)}
+  .metric{padding:22px 20px}
+  .sec{padding:88px 0}
+  .sec__head{margin-bottom:44px}
+  .screens{height:500px}
+  .screens .phone{width:180px;height:378px}
+  .screens .phone--a{left:calc(50% - 176px);top:60px}
+  .screens .phone--b{left:calc(50% - 4px);top:96px}
+  .screens .phone--c{display:none}
+  .ops{padding-top:88px}
+  .dash__main{padding:18px 16px;overflow-x:auto}
+  .tbl{min-width:620px}
+  .grid4{grid-template-columns:1fr;gap:32px}
+  .pricing{grid-template-columns:1fr;padding:28px 24px}
+  .pricing .price{gap:28px;flex-wrap:wrap}
+  .flow{grid-template-columns:1fr}
+  .step{border-left:0;border-top:1px solid var(--line);padding:28px 24px 32px}
+  .step:first-child{border-top:0}
+  .facts{grid-template-columns:1fr}
+  .facts div:nth-child(odd){padding-right:0}
+  .founders{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;padding:44px 28px;border-radius:24px}
+  .foot__grid{grid-template-columns:1fr 1fr}
+  .foot__about{grid-column:1/-1}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="AccelRyde home">
-      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1F2440"/><path d="M8 26 16 6l8 20" stroke="#EEF0F5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 24v-5m0-4v-4" stroke="#FFC400" stroke-width="2.5" stroke-linecap="round"/></svg>
-      AccelRyde
-    </a>
-    <nav class="nav" aria-label="Main">
-      <a href="#products">Products</a>
-      <a href="#ai">AI</a>
-      <a href="#company">Company</a>
-      <a class="btn btn--blaze" href="mailto:contact@accelryde.com">Email us</a>
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top" aria-label="AccelRyde home">AccelRyde</a>
+    <nav aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="#trilyt">Trilyt app</a></li>
+        <li><a href="#operators">For operators</a></li>
+        <li><a href="#ai">AI</a></li>
+        <li><a href="#company">Company</a></li>
+      </ul>
     </nav>
+    <div class="nav__cta">
+      <a class="btn btn--line" href="mailto:contact@accelryde.com">Contact</a>
+      <a class="btn btn--primary" href="https://trilyt.com/demo/enquiry">Join the operator pilot</a>
+    </div>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero" aria-labelledby="h-hero">
-    <div class="wrap">
-      <h1 id="h-hero" class="display">Software for people who ride.</h1>
-      <p class="lede">AccelRyde builds <strong>Trilyt</strong>, the app that keeps a group on the same route, and the booking software that travel operators run their trips on.</p>
-      <div class="cta">
-        <a class="btn btn--blaze" href="#products">See what we build</a>
-        <a class="btn btn--ghost" href="https://trilyt.com/demo">Watch the operator demo</a>
+<!-- HERO -->
+<section class="hero" id="top" aria-labelledby="h-hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <div class="kicker"><i></i>Operator beta pilot starts December 2026</div>
+      <h1 id="h-hero">Software for how India travels together.</h1>
+      <p class="lede">AccelRyde builds Trilyt: the app groups use to ride and travel together, and the platform travel operators use to sell, run and settle their trips.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--blaze" href="#trilyt">Explore the products</a>
+        <a class="btn btn--line" href="https://trilyt.com/demo">Watch the operator demo</a>
+      </div>
+      <div class="stores">
+        <a href="https://apps.apple.com/in/app/trilyt/id6779645682"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM14.1 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.6-1.3z"/></svg>App Store</a>
+        <span class="sep" aria-hidden="true"></span>
+        <a href="https://play.google.com/store/apps/details?id=com.trilyt.app"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.2 2.4c-.2.2-.3.6-.3 1v17.2c0 .4.1.8.3 1l9.6-9.6L4.2 2.4zm10.6 10.6 2.7 2.7-11 6.3 8.3-9zm3.9-3.1 2.6 1.5c.8.4.8 1.2 0 1.6l-2.6 1.5-2.9-2.3 2.9-2.3zM6.5 2l11 6.3-2.7 2.7-8.3-9z"/></svg>Google Play</a>
       </div>
     </div>
 
-    <div class="roadside">
-      <div class="wrap">
-        <div class="stones">
-          <div class="stone"><b>25,000+</b><span>km navigated</span></div>
-          <div class="stone stone--green"><b>3,500+</b><span>users</span></div>
-          <p class="stone-note">Trilyt usage as of October 2026. Available on Android and iOS.</p>
+    <div class="stage" aria-label="Product preview: the Trilyt app and the operator platform">
+      <div class="stage__bg" aria-hidden="true">
+        <svg viewBox="0 0 640 620" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="rgba(255,255,255,.05)"/></pattern>
+            <radialGradient id="glow" cx="70%" cy="20%" r="70%"><stop offset="0" stop-color="#FF5A1F" stop-opacity=".22"/><stop offset="1" stop-color="#FF5A1F" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="640" height="620" fill="url(#grid)"/>
+          <rect width="640" height="620" fill="url(#glow)"/>
+          <path d="M-20 520C120 470 160 380 280 360s230 40 300-60 60-220 120-260" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="22" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="phone">
+        <div class="phone__screen">
+          <div class="phone__notch" aria-hidden="true"></div>
+          <img src="https://trilyt.com/_next/image?url=%2Fscreens%2Fride-your-way.png&amp;w=640&amp;q=75" alt="Trilyt home screen with upcoming rides, alerts and rides picked for you" width="780" height="1642" fetchpriority="high" decoding="async">
         </div>
       </div>
-      <svg class="road" viewBox="0 0 1440 230" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A winding road with three riders travelling the same route together">
-        <defs>
-          <mask id="reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="230">
-            <path class="reveal" pathLength="1" d="M-20 150C190 70 360 62 540 118S880 196 1100 128 1360 62 1470 96" fill="none" stroke="#fff" stroke-width="130"/>
-          </mask>
-        </defs>
-        <g mask="url(#reveal)">
-          <path d="M-20 150C190 70 360 62 540 118S880 196 1100 128 1360 62 1470 96" fill="none" stroke="#EEF0F5" stroke-opacity=".22" stroke-width="74"/>
-          <path d="M-20 150C190 70 360 62 540 118S880 196 1100 128 1360 62 1470 96" fill="none" stroke="#2A3052" stroke-width="68"/>
-          <path id="route" d="M-20 150C190 70 360 62 540 118S880 196 1100 128 1360 62 1470 96" fill="none" stroke="#FFC400" stroke-width="3.5" stroke-dasharray="20 18"/>
-        </g>
-        <g id="riders">
-          <circle class="rider rider--1" r="9" fill="#FF5A1F" stroke="#171B2E" stroke-width="3"><animateMotion dur="6.5s" begin="1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .1 .3 1" keyPoints="0;0.76" rotate="0"><mpath href="#route"/></animateMotion></circle>
-          <circle class="rider rider--2" r="9" fill="#EEF0F5" stroke="#171B2E" stroke-width="3"><animateMotion dur="6.5s" begin="1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .1 .3 1" keyPoints="0;0.72" rotate="0"><mpath href="#route"/></animateMotion></circle>
-          <circle class="rider rider--3" r="9" fill="#FFC400" stroke="#171B2E" stroke-width="3"><animateMotion dur="6.5s" begin="1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .1 .3 1" keyPoints="0;0.68" rotate="0"><mpath href="#route"/></animateMotion></circle>
-        </g>
-      </svg>
+
+      <ul class="fcards" aria-label="Trilyt highlights">
+        <li class="fcard pop pop--1"><span class="fcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 15.5c.9-.6 1.9-1 3-1 2.8 0 5 2.2 5 5"/></svg></span><div><b>Ride sync</b><span>Every rider, live on one map</span></div></li>
+        <li class="fcard pop pop--2"><span class="fcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 21 3l-8 18-2-8z"/></svg></span><div><b>Two-wheeler navigation</b><span>Turn-by-turn on routes made for bikes</span></div></li>
+        <li class="fcard pop pop--3"><span class="fcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><b>Hey Trilyt</b><span>Hands-free voice messages to the group</span></div></li>
+        <li class="fcard pop pop--4"><span class="fcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><div><b>Trip budgets</b><span>Costs planned and split per rider</span></div></li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="products" class="band" aria-labelledby="h-products">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 id="h-products" class="display">Two products, one idea.</h2>
-        <p class="lede">Trips go better when everyone works from the same plan. Trilyt does that for the riders, and Trilyt for operators does it for the people who run the trip.</p>
-      </div>
+<!-- METRICS -->
+<div class="metrics">
+  <div class="wrap">
+    <div class="metrics__row">
+      <div class="metric"><b class="num" data-count="4200" data-suffix="+">4,200+</b><span>people using Trilyt</span></div>
+      <div class="metric"><b class="num" data-count="40000" data-suffix="+">40,000+</b><span>kilometres navigated</span></div>
+      <div class="metric"><b class="num" data-count="50" data-suffix="+">50+</b><span>travel operators on the pilot waitlist</span></div>
+      <div class="metric"><b class="num">Dec 2026</b><span>operator beta pilot goes live</span></div>
+    </div>
+    <p class="metrics__note">Figures as of November 2026.</p>
+  </div>
+</div>
 
-      <div class="products">
-        <article class="panel panel--dark" id="trilyt" aria-labelledby="h-trilyt">
-          <div>
-            <h3 id="h-trilyt">Trilyt</h3>
-            <p class="lede" style="margin-top:12px">Plan the trip, ride it together, and know what it costs before you leave. Built for riders and travellers in India.</p>
-          </div>
-          <ul class="feat" style="padding:0">
-            <li><span class="k">Two-wheeler navigation</span><span class="v">Turn-by-turn directions and route suggestions made for bikes and scooters.</span></li>
-            <li><span class="k">Ride sync</span><span class="v">Share the route once. Everyone follows the same path and the group stays together.</span></li>
-            <li><span class="k">Hands-free group voice</span><span class="v">Say "Hey Trilyt" and your message goes to the group over your Bluetooth headset.</span></li>
-            <li><span class="k">Plans and budgets</span><span class="v">Destinations, stops and timings in one place, with a cost estimate for the whole trip, solo or split.</span></li>
-            <li><span class="k">Communities and ride stats</span><span class="v">Find riding groups and weekend crews, start your own, and keep stats for every ride.</span></li>
-            <li><span class="k">AI recommendations</span><span class="v">Places ranked for the trip you are planning, learned from how you ride.</span></li>
-          </ul>
-          <div class="cta">
-            <a class="btn btn--blaze" href="https://apps.apple.com/in/app/trilyt/id6779645682">Download for iPhone</a>
-            <a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.trilyt.app">Download for Android</a>
-          </div>
-        </article>
-
-        <article class="panel panel--chalk" id="operators" aria-labelledby="h-ops">
-          <div>
-            <h3 id="h-ops">Trilyt for operators</h3>
-            <p class="lede" style="margin-top:12px">The software behind trek companies, bike expeditions, weekend camps and group tours.</p>
-          </div>
-          <ul class="feat" style="padding:0">
-            <li><span class="k">Bookings from every channel</span><span class="v">Website, WhatsApp, Instagram, walk-ins and agents land as one booking with a payment link.</span></li>
-            <li><span class="k">Paid to your own account</span><span class="v">Travellers pay through your own Razorpay account. Deposits, balances and refunds follow your policy.</span></li>
-            <li><span class="k">Built for India</span><span class="v">GST invoices, WhatsApp reminders, agent net rates, and a manifest for the guide's phone.</span></li>
-            <li><span class="k">Trilyt AI on the desk</span><span class="v">Type "Manali se 7 din ki Spiti trip banao" and it drafts the itinerary, prices and dates for you to publish.</span></li>
-          </ul>
-          <p class="fine">Free for 6 months, then 1.75% per online order, capped at ₹999. ₹0 a month.</p>
-          <div class="cta">
-            <a class="btn btn--ink" href="https://trilyt.com/demo">See the demo</a>
-            <a class="btn btn--outline-ink" href="https://trilyt.com/demo/enquiry">Send an enquiry</a>
-          </div>
-        </article>
+<!-- TRILYT APP -->
+<section class="sec" id="trilyt" aria-labelledby="h-app">
+  <div class="wrap app">
+    <div>
+      <div class="kicker"><i></i>Trilyt, for riders and travellers</div>
+      <h2 id="h-app">The group stays on one route, whoever is leading.</h2>
+      <p class="lede" style="margin-top:20px">Trilyt plans the ride, navigates it and keeps everyone in sync on the road, so a group of five behaves like one.</p>
+      <ul class="feat-list">
+        <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 21 3l-8 18-2-8z"/></svg></span><div><b>Turn-by-turn navigation for two-wheelers</b><span>Routes chosen for bikes, not cars, with clear guidance on every turn.</span></div></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 15.5c.9-.6 1.9-1 3-1 2.8 0 5 2.2 5 5"/></svg></span><div><b>Ride sync</b><span>See every rider live on the same map, so nobody gets lost at a fork.</span></div></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><b>Hey Trilyt voice messages</b><span>Riders on Bluetooth speak to the group hands-free. Trilyt records and sends the message.</span></div></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Trip plans and budgets</b><span>Day-by-day plans with progress on the road, and a trip budget split per person across stays, food, fuel and tolls.</span></div></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V3.5"/><path d="M5 4h13l-3 4.5L18 13H5"/></svg></span><div><b>Riding communities</b><span>Find riding clubs near you, request to join, or start your own.</span></div></li>
+      </ul>
+      <div class="app__ctas">
+        <a class="btn btn--primary" href="https://apps.apple.com/in/app/trilyt/id6779645682">Download for iPhone</a>
+        <a class="btn btn--line" href="https://play.google.com/store/apps/details?id=com.trilyt.app">Download for Android</a>
       </div>
     </div>
-  </section>
 
-  <section id="ai" class="band band--rule" aria-labelledby="h-ai">
-    <div class="wrap ai-grid">
-      <div class="sec-head" style="margin:0;align-content:start">
-        <h2 id="h-ai" class="display">How we use AI</h2>
-        <p class="lede">AI helps riders decide where to go. Today it does three jobs inside Trilyt.</p>
-      </div>
+    <div class="screens">
+      <div class="phone phone--a"><div class="phone__screen"><div class="phone__notch" aria-hidden="true"></div><img src="https://trilyt.com/_next/image?url=%2Fscreens%2Ftrip-plan.png&amp;w=640&amp;q=75" alt="Trilyt trip plan: day-by-day route from Pune to Ahmedabad with ride progress and map" width="780" height="1642" loading="lazy" decoding="async"></div></div>
+      <div class="phone phone--b"><div class="phone__screen"><div class="phone__notch" aria-hidden="true"></div><img src="https://trilyt.com/_next/image?url=%2Fscreens%2Ftrip-budget.png&amp;w=640&amp;q=75" alt="Trilyt trip budget: estimated cost per person split by stay, food, fuel and tolls" width="780" height="1642" loading="lazy" decoding="async"></div></div>
+      <div class="phone phone--c"><div class="phone__screen"><div class="phone__notch" aria-hidden="true"></div><img src="https://trilyt.com/_next/image?url=%2Fscreens%2Fcommunity.png&amp;w=640&amp;q=75" alt="Trilyt communities: featured and nearby riding clubs" width="780" height="1642" loading="lazy" decoding="async"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATORS -->
+<section class="ops" id="operators" aria-labelledby="h-ops">
+  <div class="wrap">
+    <div class="ops__top">
       <div>
-        <ol class="stops">
-          <li>
-            <h3>It recommends places</h3>
-            <p>It surfaces the destinations, stops and experiences most worth a rider's time, ranked for the trip being planned rather than by generic popularity.</p>
-          </li>
-          <li>
-            <h3>It learns what you like</h3>
-            <p>Trilyt learns from how each rider plans, saves and rides, and uses that to personalise what it suggests next.</p>
-          </li>
-          <li>
-            <h3>It grows the places database</h3>
-            <p>When a rider looks for a spot we don't cover yet, AI gathers information about it from across the web and returns it in a clean, structured format. That helps us add verified places to Explore, so coverage grows with our community.</p>
-          </li>
-        </ol>
-        <p class="next">Next on the road: deeper trip planning, smarter routing and richer personalisation across the riding experience.</p>
+        <div class="kicker"><i></i>Trilyt for operators</div>
+        <h2 id="h-ops">Sell, run and settle every trip from one platform.</h2>
+        <p class="lede" style="margin-top:20px">Bookings arrive from your website, WhatsApp, Instagram and walk-ins. Trilyt for operators puts them in one place, collects payment, fills the manifest and handles refunds.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="why" class="band band--rule" aria-labelledby="h-why">
-    <div class="wrap story">
-      <h2 id="h-why" class="display">Five riders. Five different routes. The same destination, supposedly.</h2>
-      <div>
-        <p>Somebody is twenty kilometres behind, somebody else took the turn nobody agreed on, and the plan is spread across a group chat, a maps screenshot and a spreadsheet.</p>
-        <p><strong>We built AccelRyde because we lived every one of those moments.</strong> The chaos is real. The fix should be too.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="company" class="band band--rule" aria-labelledby="h-company">
-    <div class="wrap company">
-      <div class="sec-head" style="margin:0;align-content:start">
-        <h2 id="h-company" class="display">The company</h2>
-        <p class="lede">AccelRyde is a two-founder company based in India, building travel technology for riders and the operators who serve them.</p>
-      </div>
-      <div>
-        <dl class="facts">
-          <div><dt>Legal name</dt><dd>AccelRyde Technologies LLP</dd></div>
-          <div><dt>LLP identification number</dt><dd>ACY-1852</dd></div>
-          <div><dt>Incorporated</dt><dd>15 May 2026, in India, under the Limited Liability Partnership Act, 2008</dd></div>
-          <div><dt>Registered in</dt><dd>Delhi, India</dd></div>
-          <div><dt>Industry</dt><dd>Travel technology</dd></div>
-          <div><dt>First release</dt><dd>Trilyt, 8 August 2026</dd></div>
-          <div><dt>Contact</dt><dd><a href="mailto:contact@accelryde.com">contact@accelryde.com</a></dd></div>
-        </dl>
-        <div class="team">
-          <div class="person"><b>Piyush Choudhary</b><span>Co-Founder and Director, CEO</span><a href="https://www.linkedin.com/in/piyush-choudhary3008/">LinkedIn profile</a></div>
-          <div class="person"><b>Soumik Barua</b><span>Co-Founder and Director, CTO</span><a href="https://www.linkedin.com/in/soumik-barua-205363154">LinkedIn profile</a></div>
+      <div class="pilot">
+        <b><i></i>Beta pilot from the first week of December 2026</b>
+        <p>More than 50 travel operators from across India have joined the waitlist. The first group goes live in the first week of December.</p>
+        <div class="btns">
+          <a class="btn btn--blaze" href="https://trilyt.com/demo/enquiry">Request pilot access</a>
+          <a class="btn btn--ghost-dark" href="https://trilyt.com/demo">Watch the demo</a>
         </div>
       </div>
     </div>
-  </section>
 
-  <section id="contact" class="band band--rule" aria-labelledby="h-contact">
-    <div class="wrap contact">
-      <h2 id="h-contact" class="display">Partnerships, press, support, or hello.</h2>
-      <a class="mail" href="mailto:contact@accelryde.com">contact@accelryde.com</a>
-      <div class="links">
-        <a href="https://www.linkedin.com/company/trilyt-app/">Trilyt on LinkedIn</a>
-        <a href="https://www.instagram.com/trilyt.app/">Trilyt on Instagram</a>
-        <a href="https://trilyt.com">trilyt.com</a>
+    <div class="dash" role="img" aria-label="Operator dashboard showing December departures, booking totals and a table of four trips with seats filled and amounts collected">
+      <div class="dash__bar"><i></i><i></i><i></i><span>Trilyt for operators</span></div>
+      <div class="dash__body">
+        <aside class="dash__side" aria-hidden="true">
+          <div class="dash__org"><span class="lg">ST</span><div><b>Sample Tours</b><small>Demo workspace</small></div></div>
+          <ul class="dash__nav">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Overview</li>
+            <li class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 11 21 3l-8 18-2-8z"/></svg>Trips</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Bookings<span class="count">6</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Payments</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Refunds</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5M16 4.5a3.5 3.5 0 0 1 0 7M18 13.7c2.3.7 4 2.9 4 5.3"/></svg>Customers</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 14H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 10 3V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 2.9 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.7 1.7 0 0 0 21 10h.1a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.6 1z"/></svg>Settings</li>
+          </ul>
+        </aside>
+        <div class="dash__main" aria-hidden="true">
+          <div class="dash__head"><div><h4>December departures</h4><small>4 trips, 49 travellers booked</small></div><span class="new">New trip</span></div>
+          <div class="kpis">
+            <div class="kpi"><span>Travellers booked</span><b class="num">49</b><em>+11 this week</em></div>
+            <div class="kpi"><span>Seats filled</span><b class="num">73%</b><em>49 of 67 open</em></div>
+            <div class="kpi"><span>Collected online</span><b class="num">₹10.5L</b><em>Across 4 trips</em></div>
+            <div class="kpi"><span>Refunds pending</span><b class="num">1</b><em style="color:#93370D">Due in 2 days</em></div>
+          </div>
+          <table class="tbl">
+            <thead><tr><th>Trip</th><th>Departs</th><th>Seats</th><th>Booked via</th><th>Collected</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><b>Spiti Valley Circuit</b><small>8 days, Royal Enfield</small></td><td class="num">6 Dec</td><td><div class="seats"><div class="bar"><i style="width:87.5%"></i></div><span class="num">14/16</span></div></td><td><div class="src"><span>Website</span><span>WhatsApp</span></div></td><td class="num">₹4,48,000</td><td><span class="pill pill--ok"><i></i>Confirmed</span></td></tr>
+              <tr><td><b>Ladakh via Manali</b><small>11 days, self-ride</small></td><td class="num">12 Dec</td><td><div class="seats"><div class="bar"><i style="width:75%"></i></div><span class="num">9/12</span></div></td><td><div class="src"><span>Instagram</span><span>Walk-in</span></div></td><td class="num">₹3,24,000</td><td><span class="pill pill--fill"><i></i>Filling</span></td></tr>
+              <tr><td><b>Rann Utsav Weekend</b><small>3 days, coach</small></td><td class="num">19 Dec</td><td><div class="seats"><div class="bar"><i style="width:83%"></i></div><span class="num">20/24</span></div></td><td><div class="src"><span>Website</span></div></td><td class="num">₹2,10,000</td><td><span class="pill pill--ok"><i></i>Confirmed</span></td></tr>
+              <tr><td><b>Coorg Coffee Trail</b><small>4 days, bike</small></td><td class="num">26 Dec</td><td><div class="seats"><div class="bar"><i style="width:40%"></i></div><span class="num">6/15</span></div></td><td><div class="src"><span>WhatsApp</span></div></td><td class="num">₹72,000</td><td><span class="pill pill--fill"><i></i>Filling</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <span class="dash__note">Product preview, illustrative data</span>
+    </div>
+  </div>
+
+  <div class="ops__feats">
+    <div class="wrap">
+      <div class="grid4">
+        <div><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16v12H5.2L4 17.5z"/><path d="M8 9h8M8 12h5"/></svg></span><h3>Every channel, one inbox</h3><p>Website, WhatsApp, Instagram and walk-in bookings land in the same place, with no spreadsheet in between.</p></div>
+        <div><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><h3>Payments and deposits</h3><p>Take full payments or deposits online and see every rupee against its booking.</p></div>
+        <div><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 4h6M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m8 13 3 3 5-6"/></svg></span><h3>Manifests that fill themselves</h3><p>Seats, traveller details and payment status update with each booking, ready for the trip leader.</p></div>
+        <div><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></span><h3>Refunds without the chase</h3><p>Cancellations and refunds run through a tracked flow, so nothing is settled by memory.</p></div>
+      </div>
+
+      <div class="pricing">
+        <div>
+          <h3>Pricing operators can plan around</h3>
+          <p>No subscription. You pay only when a traveller pays you online.</p>
+        </div>
+        <div class="price">
+          <div><b class="num">₹0</b><span>a month, and free for the first 6 months</span></div>
+          <div><b class="num">1.75%</b><span>per online order after that, capped at ₹999</span></div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- HOW IT FITS -->
+<section class="sec sec--paper" aria-labelledby="h-flow">
+  <div class="wrap">
+    <div class="sec__head">
+      <div class="kicker"><i></i>One platform, booking to the road</div>
+      <h2 id="h-flow">Operators and riders work from the same plan.</h2>
+      <p class="lede">The trip an operator publishes is the trip the group rides. No forwarded PDFs, no second app.</p>
+    </div>
+    <div class="flow">
+      <div class="step"><span class="n">Step 1</span><h3>The operator publishes a trip</h3><p>Itinerary, dates, seats and price are set once in Trilyt for operators and shared on any channel.</p><span class="who">Trilyt for operators</span></div>
+      <div class="step"><span class="n">Step 2</span><h3>Travellers book and pay</h3><p>Payments, deposits and traveller details flow into the trip manifest as each booking lands.</p><span class="who">Online checkout</span></div>
+      <div class="step"><span class="n">Step 3</span><h3>The group rides together</h3><p>On departure day, the group follows the route in the Trilyt app, synced and in touch on the road.</p><span class="who">Trilyt app</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI -->
+<section class="sec" id="ai" aria-labelledby="h-ai">
+  <div class="wrap ai">
+    <div>
+      <div class="kicker"><i></i>AI in Trilyt</div>
+      <h2 id="h-ai">AI that works for riders and for operators.</h2>
+      <p class="lede" style="margin-top:20px">In the app, AI helps travellers decide where to go next. In the operator platform, an assistant takes on the day-to-day work of running trips.</p>
+    </div>
+    <div class="ai__list">
+      <div class="ai__item ai__item--ops"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><div><span class="ai__tag">Being built into Trilyt for operators</span><h3>An assistant for operators</h3><p>A chat agent inside the operator platform that helps with daily work, from creating trip packages to answering questions about bookings, payments and travellers.</p></div></div>
+      <div class="ai__item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5.7L20 11l-5.7 2.3L12 19l-2.3-5.7L4 11l5.7-2.3z"/></svg></span><div><h3>Places worth the detour</h3><p>Trilyt suggests stops and destinations that suit the route and the group's riding style.</p></div></div>
+      <div class="ai__item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span><div><h3>Learns each traveller's preferences</h3><p>Every ride sharpens what Trilyt recommends next, from scenic roads to quick weekend loops.</p></div></div>
+      <div class="ai__item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><h3>A more complete map of India</h3><p>AI gathers structured details on places missing from our database, so new destinations reach Explore faster.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="sec sec--paper" id="company" aria-labelledby="h-co">
+  <div class="wrap company">
+    <div>
+      <div class="kicker"><i></i>Company</div>
+      <h2 id="h-co">A two-founder team building travel technology in India.</h2>
+      <p class="lede" style="margin-top:20px">AccelRyde Technologies LLP was incorporated in May 2026. We shipped Trilyt in August 2026 and are now bringing the same platform to the operators who run India's group trips.</p>
+      <div class="founders">
+        <div class="founder"><span class="ph">PC</span><b>Piyush Choudhary</b><span>Co-Founder and CEO</span><a href="https://www.linkedin.com/in/piyush-choudhary3008/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 3H3.6C3.3 3 3 3.3 3 3.6v16.8c0 .3.3.6.6.6h16.8c.3 0 .6-.3.6-.6V3.6c0-.3-.3-.6-.6-.6zM8.3 18.3H5.7V9.8h2.6v8.5zM7 8.6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11.3 9.7h-2.6v-4.1c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.2h-2.6V9.8h2.5v1.2c.4-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.8 3.2 4.1v4.6z"/></svg>LinkedIn</a></div>
+        <div class="founder"><span class="ph">SB</span><b>Soumik Barua</b><span>Co-Founder and CTO</span><a href="https://www.linkedin.com/in/soumik-barua-205363154"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 3H3.6C3.3 3 3 3.3 3 3.6v16.8c0 .3.3.6.6.6h16.8c.3 0 .6-.3.6-.6V3.6c0-.3-.3-.6-.6-.6zM8.3 18.3H5.7V9.8h2.6v8.5zM7 8.6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11.3 9.7h-2.6v-4.1c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.2h-2.6V9.8h2.5v1.2c.4-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.8 3.2 4.1v4.6z"/></svg>LinkedIn</a></div>
+      </div>
+    </div>
+    <div>
+      <dl class="facts">
+        <div><dt>Legal name</dt><dd>AccelRyde Technologies LLP</dd></div>
+        <div><dt>LLPIN</dt><dd>ACY-1852</dd></div>
+        <div><dt>Incorporated</dt><dd>15 May 2026, LLP Act 2008</dd></div>
+        <div><dt>Registered office</dt><dd>New Delhi, India</dd></div>
+        <div><dt>First release</dt><dd>Trilyt, 8 August 2026</dd></div>
+        <div><dt>Programs</dt><dd>NVIDIA Inception</dd></div>
+        <div><dt>Industry</dt><dd>Travel technology</dd></div>
+        <div><dt>Contact</dt><dd><a href="mailto:contact@accelryde.com">contact@accelryde.com</a></dd></div>
+      </dl>
+      <div class="stack">
+        <b>How we build</b>
+        <p>React Native apps for Android and iOS, Python services and MongoDB Atlas, with our infrastructure moving to AWS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" aria-labelledby="h-cta" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="cta">
+      <svg class="road" viewBox="0 0 520 300" aria-hidden="true"><path d="M0 280C120 260 180 180 280 170s180-40 240-150" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="40" stroke-linecap="round"/><path d="M0 280C120 260 180 180 280 170s180-40 240-150" fill="none" stroke="#FF5A1F" stroke-width="3" stroke-dasharray="12 12" stroke-linecap="round"/></svg>
+      <div>
+        <h2 id="h-cta">Run trips? Join the December pilot.</h2>
+        <p>The pilot opens in the first week of December. Tell us about your trips and we will set up your workspace with you.</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn--blaze" href="https://trilyt.com/demo/enquiry">Request pilot access</a>
+        <a class="btn btn--ghost-dark" href="mailto:contact@accelryde.com">contact@accelryde.com</a>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <span>&copy; 2026 AccelRyde Technologies LLP. LLPIN ACY-1852. Registered in Delhi, India.</span>
-    <span><a href="https://trilyt.com/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="https://trilyt.com/terms">Terms</a></span>
+    <div class="foot__grid">
+      <div class="foot__about">
+        <a class="brand" href="#top" aria-label="AccelRyde home">AccelRyde</a>
+        <p>Travel software for India's riders and the operators who run their trips.</p>
+      </div>
+      <div><h4>Products</h4><ul><li><a href="#trilyt">Trilyt app</a></li><li><a href="#operators">Trilyt for operators</a></li><li><a href="https://trilyt.com/demo">Operator demo</a></li><li><a href="https://trilyt.com/">trilyt.com</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#company">About</a></li><li><a href="#ai">AI</a></li><li><a href="mailto:contact@accelryde.com">Contact</a></li></ul></div>
+      <div><h4>Follow</h4><ul><li><a href="https://www.linkedin.com/company/trilyt-app/">LinkedIn</a></li><li><a href="https://www.instagram.com/trilyt.app/">Instagram</a></li></ul></div>
+    </div>
+    <div class="foot__base">
+      <span>© 2026 AccelRyde Technologies LLP. LLPIN ACY-1852. Registered in New Delhi, India.</span>
+      <span><a href="https://trilyt.com/privacy" style="color:inherit">Privacy</a> &nbsp; <a href="https://trilyt.com/terms" style="color:inherit">Terms</a></span>
+    </div>
   </div>
 </footer>
 
 <script>
 (function(){
-  if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var route=document.getElementById('route');
-  var riders=document.querySelectorAll('#riders circle');
-  if(!route||!riders.length||!route.getTotalLength) return;
-  var len=route.getTotalLength();
-  riders.forEach(function(c,i){
-    var a=c.querySelector('animateMotion'); if(a) a.remove();
-    var p=route.getPointAtLength(len*(0.76-i*0.04));
-    c.setAttribute('cx',p.x); c.setAttribute('cy',p.y);
-  });
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('is-scrolled',window.scrollY>8)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var counters=document.querySelectorAll('[data-count]');
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(counters.length&&!still&&'IntersectionObserver' in window){
+    var fmt=function(n){return n.toLocaleString('en-US')};
+    counters.forEach(function(el){el.textContent='0'+(el.dataset.suffix||'')});
+    var run=function(el){
+      var end=+el.dataset.count,suf=el.dataset.suffix||'',t0=null,dur=1600;
+      var step=function(t){
+        if(t0===null)t0=t;
+        var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+        el.textContent=fmt(Math.round(end*e))+suf;
+        if(p<1)requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target)}});
+    },{threshold:.6});
+    counters.forEach(function(el){io.observe(el)});
+  }
 })();
 </script>
 </body>
