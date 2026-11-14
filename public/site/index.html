@@ -11,7 +11,7 @@
 <meta property="og:title" content="AccelRyde: travel software for riders and travel operators">
 <meta property="og:description" content="We build Trilyt, the app groups use to ride and travel together, and the platform travel operators use to sell and run their trips.">
 <meta name="theme-color" content="#101828">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101828'/%3E%3Cpath d='M32 12 14 52h9l9-21 9 21h9z' fill='%23fff'/%3E%3Cpath d='M32 40v12' stroke='%23FF5A1F' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="/site/favicon.svg" type="image/svg+xml">
 <!--FONTS-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,8 +84,7 @@ p{margin:0}
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
 .nav.is-scrolled{border-bottom-color:var(--line)}
 .nav__in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:650;font-size:1.125rem;letter-spacing:-.02em}
-.brand svg{width:30px;height:30px}
+.brand{display:inline-block;text-decoration:none;font-weight:700;font-size:1.375rem;letter-spacing:-.045em;line-height:1;color:var(--ink)}
 .nav__links{display:flex;gap:32px;list-style:none;margin:0;padding:0}
 .nav__links a{text-decoration:none;font-size:.9375rem;color:var(--ink-3);font-weight:500}
 .nav__links a:hover{color:var(--ink)}
@@ -110,47 +109,15 @@ p{margin:0}
 .phone{position:absolute;left:0;top:48px;width:286px;height:580px;border-radius:44px;background:#0A0F1C;padding:10px;box-shadow:var(--shadow-lg);z-index:3}
 .phone__screen{position:relative;width:100%;height:100%;border-radius:35px;overflow:hidden;background:#EEF1F5}
 .phone__notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:92px;height:26px;border-radius:20px;background:#0A0F1C;z-index:5}
-.phone__status{position:absolute;top:0;left:0;right:0;height:44px;display:flex;justify-content:space-between;align-items:center;padding:6px 26px 0;font-size:12px;font-weight:600;z-index:4}
-.turn{position:absolute;top:50px;left:12px;right:12px;background:var(--ink);color:#fff;border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:center;z-index:4}
-.turn__ico{width:34px;height:34px;border-radius:10px;background:var(--go);display:grid;place-items:center;flex:none}
-.turn__ico svg{width:20px;height:20px}
-.turn b{display:block;font-size:15px;line-height:1.2}
-.turn span{font-size:12px;color:#B6BFCE}
-.map{position:absolute;inset:0}
-.sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:22px 22px 0 0;padding:10px 16px 18px;box-shadow:0 -8px 24px rgba(16,24,40,.12);z-index:4}
-.sheet__grab{width:36px;height:4px;border-radius:4px;background:var(--line-2);margin:0 auto 12px}
-.sheet__row{display:flex;align-items:center;justify-content:space-between}
-.sheet h4{margin:0;font-size:15px;font-weight:650;letter-spacing:-.01em}
-.sheet small{font-size:12px;color:var(--muted)}
-.live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#067647;background:var(--go-wash);padding:4px 8px;border-radius:999px}
-.live i{width:6px;height:6px;border-radius:50%;background:var(--go)}
-.avatars{display:flex;margin:12px 0}
-.av{width:30px;height:30px;border-radius:50%;border:2px solid #fff;margin-left:-8px;display:grid;place-items:center;font-size:11px;font-weight:600;color:#fff}
-.av:first-child{margin-left:0}
-.voice{display:flex;align-items:center;gap:10px;background:var(--paper);border-radius:12px;padding:9px 12px;font-size:12px;color:var(--ink-3)}
-.voice svg{width:16px;height:16px;flex:none;color:var(--blaze)}
-.voice .wave{display:flex;gap:2px;align-items:center;margin-left:auto}
-.voice .wave i{width:2px;border-radius:2px;background:var(--blaze);display:block}
 
-.float{position:absolute;background:#fff;border-radius:16px;box-shadow:var(--shadow-lg);z-index:4;font-size:13px}
-.float--booking{right:24px;top:92px;width:272px;padding:16px}
-.float--booking header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.float--booking header .ok{width:28px;height:28px;border-radius:8px;background:var(--go-wash);display:grid;place-items:center;color:#067647}
-.float--booking header .ok svg{width:16px;height:16px}
-.float--booking header b{font-size:14px;display:block;line-height:1.2}
-.float--booking header small{color:var(--muted);font-size:12px}
-.float dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px}
-.float dt{color:var(--muted)}
-.float dd{margin:0;text-align:right;font-weight:550}
-.float--manifest{right:56px;bottom:60px;width:244px;padding:16px}
-.float--manifest h5{margin:0 0 10px;font-size:13px;font-weight:600;display:flex;justify-content:space-between}
-.float--manifest h5 span{color:var(--muted);font-weight:500}
+.fcards{position:absolute;right:28px;top:150px;width:272px;list-style:none;margin:0;padding:0;display:grid;gap:14px;z-index:4}
+.fcard{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:var(--shadow-lg)}
+.fcard__ico{width:40px;height:40px;border-radius:12px;background:var(--blaze-wash);color:var(--blaze-ink);display:grid;place-items:center}
+.fcard__ico svg{width:20px;height:20px}
+.fcard b{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.fcard span{display:block;font-size:13px;color:var(--muted);line-height:1.35;margin-top:2px}
 .bar{height:8px;border-radius:8px;background:var(--paper);overflow:hidden}
 .bar i{display:block;height:100%;background:var(--blaze);border-radius:8px}
-.float--manifest ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
-.float--manifest li{display:flex;justify-content:space-between;color:var(--ink-3)}
-.float--manifest li span:last-child{font-weight:550;color:var(--ink)}
-.preview-note{position:absolute;right:20px;bottom:16px;font-size:11px;color:rgba(255,255,255,.5);z-index:2}
 
 /* metrics */
 .metrics{background:var(--paper);padding:56px 0 88px}
@@ -178,29 +145,15 @@ section{scroll-margin-top:80px}
 .feat-list span{display:block;color:var(--muted);font-size:.9375rem;line-height:1.5;margin-top:2px}
 .app__ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 
-.phone__screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 .screens{position:relative;height:620px;background:var(--paper);border-radius:28px;overflow:hidden}
-.screens .phone{position:absolute;top:96px;width:184px;height:388px;border-radius:34px;padding:8px}
-.screens .phone__screen{border-radius:29px}
+.screens .phone{position:absolute;top:96px;width:170px;height:358px;border-radius:32px;padding:7px}
+.screens .phone__screen{border-radius:26px}
 .screens .phone__notch{width:66px;height:20px;top:8px}
-.screens .phone--a{left:calc(50% - 268px);top:136px}
-.screens .phone--b{left:calc(50% - 92px);top:76px;z-index:4}
-.screens .phone--c{left:calc(50% + 84px);top:136px}
-.scr{position:absolute;inset:0;padding:52px 16px 16px;background:#fff;font-size:12px}
-.scr h6{margin:0 0 4px;font-size:18px;font-weight:650;letter-spacing:-.02em}
-.scr .sub{color:var(--muted)}
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
-.stat-grid div{background:var(--paper);border-radius:12px;padding:10px 12px}
-.stat-grid b{display:block;white-space:nowrap;font-size:18px;font-weight:650;letter-spacing:-.03em}
-.stat-grid span{color:var(--muted);font-size:11px}
-.elev{margin-top:12px;background:var(--paper);border-radius:12px;padding:10px 12px}
-.elev svg{width:100%;height:64px;margin-top:6px}
-.place{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
-.place:last-child{border-bottom:0}
-.place .thumb{width:48px;height:48px;border-radius:10px;flex:none}
-.place b{display:block;font-size:13px}
-.place small{color:var(--muted);font-size:11px}
-.tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 7px;border-radius:999px;background:var(--blaze-wash);color:var(--blaze-ink)}
+.screens .phone--a{left:calc(50% - 241px);top:150px}
+.screens .phone--b{left:calc(50% - 85px);top:96px;z-index:4}
+.screens .phone--c{left:calc(50% + 71px);top:150px}
+
+.phone__screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 
 /* operators */
 .ops{background:var(--ink);color:#fff;padding:120px 0 0;overflow:hidden}
@@ -287,6 +240,10 @@ section{scroll-margin-top:80px}
 .ai__item .ico svg{width:22px;height:22px}
 .ai__item h3{font-size:1.0625rem}
 .ai__item p{color:var(--muted);font-size:.9375rem;margin-top:6px}
+.ai__item--ops{background:var(--ink);border-color:var(--ink);color:#fff}
+.ai__item--ops .ico{background:var(--blaze)}
+.ai__item--ops p{color:#B6BFCE}
+.ai__tag{display:inline-block;font-size:.75rem;font-weight:600;color:#FFB59A;margin-bottom:6px}
 
 /* company */
 .company{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px}
@@ -326,14 +283,11 @@ section{scroll-margin-top:80px}
 .foot__base{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:.8125rem;color:var(--soft)}
 
 /* motion */
-.route-draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s cubic-bezier(.6,0,.2,1) .3s forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
 .pop{opacity:0;transform:translateY(12px);animation:pop .6s cubic-bezier(.2,.7,.2,1) forwards}
-.pop--1{animation-delay:1.4s}.pop--2{animation-delay:1.9s}
+.pop--1{animation-delay:.35s}.pop--2{animation-delay:.55s}.pop--3{animation-delay:.75s}.pop--4{animation-delay:.95s}
 @keyframes pop{to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .route-draw{animation:none;stroke-dashoffset:0}
   .pop{animation:none;opacity:1;transform:none}
 }
 
@@ -355,16 +309,16 @@ section{scroll-margin-top:80px}
   .wrap{padding:0 20px}
   .nav__cta .btn--line{display:none}
   .hero{padding-top:40px}
-  .stage{height:584px}
-  .turn b{font-size:13px}
-  .turn span{font-size:11px}
   .stage__bg{inset:0 -20px 0 24px;border-radius:24px 0 0 24px}
-  .phone{width:250px;height:510px;left:-4px;top:28px;border-radius:40px}
+  .phone{width:250px;height:510px;top:28px;border-radius:40px}
   .phone__screen{border-radius:31px}
-  .float--booking{right:-6px;top:176px;width:206px;padding:12px}
-  .float--booking header b{font-size:13px}
-  .float--manifest{display:none}
-  .float--booking dl{font-size:12px}
+  .stage{height:auto;padding-bottom:24px}
+  .stage .phone{position:relative;margin-left:8px}
+  .fcards{position:relative;right:auto;top:auto;width:auto;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 0 36px;padding-right:4px}
+  .fcard{grid-template-columns:1fr;gap:8px;padding:12px}
+  .fcard__ico{width:32px;height:32px;border-radius:10px}
+  .fcard b{font-size:14px}
+  .fcard span{font-size:12px}
   .metrics__row{grid-template-columns:1fr 1fr}
   .metric:nth-child(3){border-left:0}
   .metric:nth-child(n+3){border-top:1px solid var(--line)}
@@ -399,10 +353,7 @@ section{scroll-margin-top:80px}
 
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="brand" href="#top" aria-label="AccelRyde home">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#101828"/><path d="M32 12 14 52h9l9-21 9 21h9z" fill="#fff"/><path d="M32 40v12" stroke="#FF5A1F" stroke-width="4" stroke-linecap="round"/></svg>
-      AccelRyde
-    </a>
+    <a class="brand" href="#top" aria-label="AccelRyde home">AccelRyde</a>
     <nav aria-label="Primary">
       <ul class="nav__links">
         <li><a href="#trilyt">Trilyt app</a></li>
@@ -453,29 +404,16 @@ section{scroll-margin-top:80px}
       <div class="phone">
         <div class="phone__screen">
           <div class="phone__notch" aria-hidden="true"></div>
-          <img src="https://trilyt.com/_next/image?url=%2Fscreens%2Ftrip-plan.png&amp;w=640&amp;q=75" alt="Trilyt app: day-by-day trip plan from Pune to Ahmedabad with ride progress and route map" width="780" height="1642" decoding="async">
+          <img src="https://trilyt.com/_next/image?url=%2Fscreens%2Fride-your-way.png&amp;w=640&amp;q=75" alt="Trilyt home screen with upcoming rides, alerts and rides picked for you" width="780" height="1642" fetchpriority="high" decoding="async">
         </div>
       </div>
 
-      <div class="float float--booking pop pop--1" role="img" aria-label="Operator platform notification: new online booking paid">
-        <header><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></span><div><b>New booking, paid online</b><small>Trilyt for operators</small></div></header>
-        <dl>
-          <dt>Trip</dt><dd>Ladakh via Manali</dd>
-          <dt>Seats</dt><dd class="num">2</dd>
-          <dt>Source</dt><dd>Instagram</dd>
-          <dt>Collected</dt><dd class="num">₹72,000</dd>
-        </dl>
-      </div>
-      <div class="float float--manifest pop pop--2" role="img" aria-label="Trip manifest: 14 of 16 seats filled">
-        <h5>Spiti Circuit, 6 Dec <span class="num">14/16</span></h5>
-        <div class="bar"><i style="width:87.5%"></i></div>
-        <ul>
-          <li><span>Paid in full</span><span class="num">12</span></li>
-          <li><span>Deposit paid</span><span class="num">2</span></li>
-          <li><span>Refund requests</span><span class="num">0</span></li>
-        </ul>
-      </div>
-      <span class="preview-note">Operator cards: illustrative data</span>
+      <ul class="fcards" aria-label="Trilyt highlights">
+        <li class="fcard pop pop--1"><span class="fcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 15.5c.9-.6 1.9-1 3-1 2.8 0 5 2.2 5 5"/></svg></span><div><b>Ride sync</b><span>Every rider, live on one map</span></div></li>
+        <li class="fcard pop pop--2"><span class="fcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 21 3l-8 18-2-8z"/></svg></span><div><b>Two-wheeler navigation</b><span>Turn-by-turn on routes made for bikes</span></div></li>
+        <li class="fcard pop pop--3"><span class="fcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><b>Hey Trilyt</b><span>Hands-free voice messages to the group</span></div></li>
+        <li class="fcard pop pop--4"><span class="fcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><div><b>Trip budgets</b><span>Costs planned and split per rider</span></div></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -514,7 +452,7 @@ section{scroll-margin-top:80px}
     </div>
 
     <div class="screens">
-      <div class="phone phone--a"><div class="phone__screen"><div class="phone__notch" aria-hidden="true"></div><img src="https://trilyt.com/_next/image?url=%2Fscreens%2Fride-your-way.png&amp;w=640&amp;q=75" alt="Trilyt home screen with upcoming rides and rides picked for you" width="780" height="1642" loading="lazy" decoding="async"></div></div>
+      <div class="phone phone--a"><div class="phone__screen"><div class="phone__notch" aria-hidden="true"></div><img src="https://trilyt.com/_next/image?url=%2Fscreens%2Ftrip-plan.png&amp;w=640&amp;q=75" alt="Trilyt trip plan: day-by-day route from Pune to Ahmedabad with ride progress and map" width="780" height="1642" loading="lazy" decoding="async"></div></div>
       <div class="phone phone--b"><div class="phone__screen"><div class="phone__notch" aria-hidden="true"></div><img src="https://trilyt.com/_next/image?url=%2Fscreens%2Ftrip-budget.png&amp;w=640&amp;q=75" alt="Trilyt trip budget: estimated cost per person split by stay, food, fuel and tolls" width="780" height="1642" loading="lazy" decoding="async"></div></div>
       <div class="phone phone--c"><div class="phone__screen"><div class="phone__notch" aria-hidden="true"></div><img src="https://trilyt.com/_next/image?url=%2Fscreens%2Fcommunity.png&amp;w=640&amp;q=75" alt="Trilyt communities: featured and nearby riding clubs" width="780" height="1642" loading="lazy" decoding="async"></div></div>
     </div>
@@ -622,10 +560,11 @@ section{scroll-margin-top:80px}
   <div class="wrap ai">
     <div>
       <div class="kicker"><i></i>AI in Trilyt</div>
-      <h2 id="h-ai">Recommendations that know how your group travels.</h2>
-      <p class="lede" style="margin-top:20px">We use AI where it saves a traveller time: deciding where to go next, and keeping our map of India's places complete.</p>
+      <h2 id="h-ai">AI that works for riders and for operators.</h2>
+      <p class="lede" style="margin-top:20px">In the app, AI helps travellers decide where to go next. In the operator platform, an assistant takes on the day-to-day work of running trips.</p>
     </div>
     <div class="ai__list">
+      <div class="ai__item ai__item--ops"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><div><span class="ai__tag">Being built into Trilyt for operators</span><h3>An assistant for operators</h3><p>A chat agent inside the operator platform that helps with daily work, from creating trip packages to answering questions about bookings, payments and travellers.</p></div></div>
       <div class="ai__item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 5.7L20 11l-5.7 2.3L12 19l-2.3-5.7L4 11l5.7-2.3z"/></svg></span><div><h3>Places worth the detour</h3><p>Trilyt suggests stops and destinations that suit the route and the group's riding style.</p></div></div>
       <div class="ai__item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span><div><h3>Learns each traveller's preferences</h3><p>Every ride sharpens what Trilyt recommends next, from scenic roads to quick weekend loops.</p></div></div>
       <div class="ai__item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><h3>A more complete map of India</h3><p>AI gathers structured details on places missing from our database, so new destinations reach Explore faster.</p></div></div>
@@ -686,7 +625,7 @@ section{scroll-margin-top:80px}
   <div class="wrap">
     <div class="foot__grid">
       <div class="foot__about">
-        <a class="brand" href="#top" aria-label="AccelRyde home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#101828"/><path d="M32 12 14 52h9l9-21 9 21h9z" fill="#fff"/><path d="M32 40v12" stroke="#FF5A1F" stroke-width="4" stroke-linecap="round"/></svg>AccelRyde</a>
+        <a class="brand" href="#top" aria-label="AccelRyde home">AccelRyde</a>
         <p>Travel software for India's riders and the operators who run their trips.</p>
       </div>
       <div><h4>Products</h4><ul><li><a href="#trilyt">Trilyt app</a></li><li><a href="#operators">Trilyt for operators</a></li><li><a href="https://trilyt.com/demo">Operator demo</a></li><li><a href="https://trilyt.com/">trilyt.com</a></li></ul></div>
