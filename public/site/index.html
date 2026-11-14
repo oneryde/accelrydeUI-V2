@@ -422,9 +422,9 @@ section{scroll-margin-top:80px}
 <div class="metrics">
   <div class="wrap">
     <div class="metrics__row">
-      <div class="metric"><b class="num">4,200+</b><span>people using Trilyt</span></div>
-      <div class="metric"><b class="num">40,000+</b><span>kilometres navigated</span></div>
-      <div class="metric"><b class="num">50+</b><span>travel operators on the pilot waitlist</span></div>
+      <div class="metric"><b class="num" data-count="4200" data-suffix="+">4,200+</b><span>people using Trilyt</span></div>
+      <div class="metric"><b class="num" data-count="40000" data-suffix="+">40,000+</b><span>kilometres navigated</span></div>
+      <div class="metric"><b class="num" data-count="50" data-suffix="+">50+</b><span>travel operators on the pilot waitlist</span></div>
       <div class="metric"><b class="num">Dec 2026</b><span>operator beta pilot goes live</span></div>
     </div>
     <p class="metrics__note">Figures as of November 2026.</p>
@@ -443,7 +443,7 @@ section{scroll-margin-top:80px}
         <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 15.5c.9-.6 1.9-1 3-1 2.8 0 5 2.2 5 5"/></svg></span><div><b>Ride sync</b><span>See every rider live on the same map, so nobody gets lost at a fork.</span></div></li>
         <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><b>Hey Trilyt voice messages</b><span>Riders on Bluetooth speak to the group hands-free. Trilyt records and sends the message.</span></div></li>
         <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><b>Trip plans and budgets</b><span>Day-by-day plans with progress on the road, and a trip budget split per person across stays, food, fuel and tolls.</span></div></li>
-        <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><div><b>Riding communities</b><span>Find riding clubs near you, request to join, or start your own.</span></div></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V3.5"/><path d="M5 4h13l-3 4.5L18 13H5"/></svg></span><div><b>Riding communities</b><span>Find riding clubs near you, request to join, or start your own.</span></div></li>
       </ul>
       <div class="app__ctas">
         <a class="btn btn--primary" href="https://apps.apple.com/in/app/trilyt/id6779645682">Download for iPhone</a>
@@ -644,6 +644,26 @@ section{scroll-margin-top:80px}
   var nav=document.getElementById('nav');
   function onScroll(){nav.classList.toggle('is-scrolled',window.scrollY>8)}
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var counters=document.querySelectorAll('[data-count]');
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(counters.length&&!still&&'IntersectionObserver' in window){
+    var fmt=function(n){return n.toLocaleString('en-US')};
+    counters.forEach(function(el){el.textContent='0'+(el.dataset.suffix||'')});
+    var run=function(el){
+      var end=+el.dataset.count,suf=el.dataset.suffix||'',t0=null,dur=1600;
+      var step=function(t){
+        if(t0===null)t0=t;
+        var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+        el.textContent=fmt(Math.round(end*e))+suf;
+        if(p<1)requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target)}});
+    },{threshold:.6});
+    counters.forEach(function(el){io.observe(el)});
+  }
 })();
 </script>
 </body>
